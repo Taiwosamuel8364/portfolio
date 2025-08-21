@@ -50,13 +50,14 @@ app.use((req, res) => {
 app.use((err, req, res, next) => {
   console.error('Server error:', err);
   
-  // Don't expose error details in production
+  // Check if it's development
   const isDev = process.env.NODE_ENV !== 'production';
   
   res.status(500).render('error', { 
     title: 'Server Error',
     error: isDev ? err : { message: 'Internal Server Error' },
-    currentPage: 'error'
+    currentPage: 'error',
+    isDev: isDev  // Pass this to the template
   });
 });
 

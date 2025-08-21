@@ -15,7 +15,7 @@
                         <p class="lead mb-4">
                             Something went wrong on our end. Please try again later.
                         </p>
-                        <% if (process.env.NODE_ENV === 'development' && error.stack) { %>
+                        <% if (error && error.stack && typeof isDev !== 'undefined' && isDev) { %>
                             <div class="alert alert-danger text-start">
                                 <h6>Error Details (Development Mode):</h6>
                                 <pre class="small"><%= error.stack %></pre>
