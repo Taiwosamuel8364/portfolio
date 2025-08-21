@@ -78,7 +78,8 @@
 /* Keep gradients and primary colors unchanged in dark mode */
 [data-theme="dark"] section[style*="linear-gradient"],
 [data-theme="dark"] section[style*="background: linear-gradient"] {
-    /* Keep original gradient backgrounds */
+    /* Preserve original gradient styling */
+    background-blend-mode: normal;
 }
 </style>
 
@@ -176,5 +177,22 @@ document.addEventListener('DOMContentLoaded', function() {
             mobileToggle.innerHTML = navMenu.classList.contains('show') ? '✕' : '☰';
         });
     }
+
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('themeToggle');
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    
+    // Set initial theme
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    themeToggle.innerHTML = currentTheme === 'dark' ? '☀️' : '🌙';
+    
+    themeToggle.addEventListener('click', function() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        themeToggle.innerHTML = newTheme === 'dark' ? '☀️' : '🌙';
+    });
 });
 </script>

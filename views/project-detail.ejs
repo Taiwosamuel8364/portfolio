@@ -1,84 +1,128 @@
 <%- include('partials/header') %>
 <%- include('partials/navbar') %>
 
-<div class="container-fluid p-0">
+<style>
+@media (max-width: 768px) {
+    .project-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+    .project-hero {
+        padding: 40px 0 !important;
+        text-align: center !important;
+    }
+    .project-hero h1 {
+        font-size: 2rem !important;
+    }
+    .project-content {
+        padding: 40px 0 !important;
+    }
+    .project-links {
+        justify-content: center !important;
+        flex-direction: column !important;
+        gap: 1rem !important;
+    }
+    .project-links a {
+        width: 100% !important;
+        max-width: 200px !important;
+        text-align: center !important;
+    }
+    .project-features {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+}
+@media (max-width: 480px) {
+    .project-hero h1 {
+        font-size: 1.8rem !important;
+    }
+    .project-container {
+        padding: 0 15px !important;
+    }
+}
+</style>
+
+<div style="padding: 0; padding-top: 80px;">
     <!-- Hero Section -->
-    <section class="hero-section bg-primary text-white py-4">
-        <div class="container py-4">
-            <div class="row align-items-center">
-                <div class="col-12">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb text-white">
-                            <li class="breadcrumb-item"><a href="/" class="text-white-50">Home</a></li>
-                            <li class="breadcrumb-item"><a href="/projects" class="text-white-50">Projects</a></li>
-                            <li class="breadcrumb-item active text-white"><%= project.title %></li>
-                        </ol>
-                    </nav>
-                    <h1 class="display-5 fw-bold mb-2" data-aos="fade-up"><%= project.title %></h1>
-                    <p class="lead mb-0" data-aos="fade-up" data-aos-delay="100"><%= project.category %></p>
-                </div>
+    <section class="project-hero" style="background: linear-gradient(135deg, #0d6efd 0%, #0056b3 100%); color: white; padding: 60px 0;">
+        <div class="project-container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <div style="margin-bottom: 1rem;">
+                <nav style="margin-bottom: 1rem;">
+                    <a href="/" style="color: rgba(255,255,255,0.7); text-decoration: none;">Home</a>
+                    <span style="color: rgba(255,255,255,0.7); margin: 0 0.5rem;">/</span>
+                    <a href="/projects" style="color: rgba(255,255,255,0.7); text-decoration: none;">Projects</a>
+                    <span style="color: rgba(255,255,255,0.7); margin: 0 0.5rem;">/</span>
+                    <span style="color: white;"><%= project.title %></span>
+                </nav>
+                <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 1rem;"><%= project.title %></h1>
+                <p style="font-size: 1.2rem; opacity: 0.9; margin: 0;"><%= project.category %></p>
             </div>
         </div>
     </section>
 
     <!-- Project Details -->
-    <section class="py-5">
-        <div class="container">
-            <div class="row">
+    <section class="project-content" style="padding: 80px 0;">
+        <div class="project-container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <div class="project-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
                 <!-- Project Image -->
-                <div class="col-lg-6 mb-4" data-aos="fade-right">
-                    <div class="project-image-container">
-                        <img src="<%= project.image %>" class="img-fluid rounded shadow" alt="<%= project.title %>"
+                <div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <img src="<%= project.image %>" style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" alt="<%= project.title %>"
                              onerror="this.src='/images/project-placeholder.jpg'">
                     </div>
                     
                     <!-- Project Links -->
-                    <div class="d-flex gap-3 mt-3">
+                    <div class="project-links" style="display: flex; gap: 1rem;">
                         <% if (project.githubUrl) { %>
-                            <a href="<%= project.githubUrl %>" target="_blank" class="btn btn-outline-dark">
-                                <i class="fab fa-github me-2"></i>View Code
+                            <a href="<%= project.githubUrl %>" target="_blank" style="border: 1px solid #6c757d; color: #6c757d; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold; display: flex; align-items: center; justify-content: center;">
+                                🔗 View Code
                             </a>
                         <% } %>
                         <% if (project.liveUrl) { %>
-                            <a href="<%= project.liveUrl %>" target="_blank" class="btn btn-primary">
-                                <i class="fas fa-external-link-alt me-2"></i>Live Demo
+                            <a href="<%= project.liveUrl %>" target="_blank" style="background-color: #0d6efd; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold; display: flex; align-items: center; justify-content: center;">
+                                🚀 Live Demo
                             </a>
                         <% } %>
                     </div>
                 </div>
 
                 <!-- Project Info -->
-                <div class="col-lg-6" data-aos="fade-left">
+                <div>
                     <!-- Status and Tech Stack -->
-                    <div class="mb-4">
-                        <div class="d-flex align-items-center mb-3">
-                            <h6 class="me-3 mb-0">Status:</h6>
-                            <span class="badge bg-<%= project.status === 'Completed' ? 'success' : project.status === 'In Progress' ? 'warning' : 'secondary' %> fs-6">
+                    <div style="margin-bottom: 2rem;">
+                        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                            <h6 style="margin-right: 1rem; margin-bottom: 0; font-weight: bold;">Status:</h6>
+                            <% 
+                                let statusColor = '#6c757d';
+                                if (project.status === 'Completed') statusColor = '#28a745';
+                                else if (project.status === 'In Progress') statusColor = '#ffc107';
+                            %>
+                            <span style="background-color: <%= statusColor %>; color: white; padding: 6px 12px; border-radius: 20px; font-size: 0.9rem;">
                                 <%= project.status %>
                             </span>
                         </div>
                         
-                        <h6 class="mb-2">Technology Stack:</h6>
-                        <div class="tech-stack">
+                        <h6 style="margin-bottom: 1rem; font-weight: bold;">Technology Stack:</h6>
+                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
                             <% project.techStack.forEach(tech => { %>
-                                <span class="badge bg-primary me-2 mb-2"><%= tech %></span>
+                                <span style="background-color: #0d6efd; color: white; padding: 6px 12px; border-radius: 20px; font-size: 0.85rem;"><%= tech %></span>
                             <% }) %>
                         </div>
                     </div>
 
                     <!-- Description -->
-                    <div class="mb-4">
-                        <h5 class="mb-3">Project Overview</h5>
-                        <p class="lead"><%= project.description %></p>
+                    <div style="margin-bottom: 2rem;">
+                        <h5 style="margin-bottom: 1rem; font-weight: bold;">Project Overview</h5>
+                        <p style="font-size: 1.1rem; line-height: 1.6; color: #495057;"><%= project.description %></p>
                     </div>
 
                     <!-- Features -->
-                    <div class="mb-4">
-                        <h5 class="mb-3">Key Features</h5>
-                        <ul class="list-unstyled">
+                    <div style="margin-bottom: 2rem;">
+                        <h5 style="margin-bottom: 1rem; font-weight: bold;">Key Features</h5>
+                        <ul style="list-style: none; padding: 0;">
                             <% project.features.forEach(feature => { %>
-                                <li class="mb-2">
-                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                <li style="margin-bottom: 0.75rem; display: flex; align-items: flex-start;">
+                                    <span style="color: #28a745; margin-right: 0.75rem; font-size: 1.1rem;">✓</span>
                                     <%= feature %>
                                 </li>
                             <% }) %>
@@ -90,106 +134,158 @@
     </section>
 
     <!-- Technical Details -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto" data-aos="fade-up">
-                    <h3 class="text-center mb-5">Technical Implementation</h3>
-                    
-                    <div class="row">
-                        <!-- Architecture -->
-                        <div class="col-md-6 mb-4">
-                            <div class="card h-100">
-                                <div class="card-body text-center">
-                                    <i class="fas fa-sitemap fa-3x text-primary mb-3"></i>
-                                    <h5 class="card-title">Architecture</h5>
-                                    <p class="card-text">
-                                        <% if (project.title.includes('E-Commerce')) { %>
-                                            RESTful API architecture with modular design, middleware for authentication, and structured error handling.
-                                        <% } else if (project.title.includes('Chat')) { %>
-                                            Real-time architecture using Socket.io with event-driven design and efficient message broadcasting.
-                                        <% } else if (project.title.includes('Task')) { %>
-                                            MVC architecture with role-based access control and comprehensive data validation.
-                                        <% } else { %>
-                                            Well-structured backend architecture following industry best practices and design patterns.
-                                        <% } %>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+    <section style="padding: 80px 0; background-color: #f8f9fa;">
+        <div class="project-container" style="max-width: 1000px; margin: 0 auto; padding: 0 20px;">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h3 style="font-size: 2rem; font-weight: bold; margin-bottom: 1rem;">Technical Implementation</h3>
+            </div>
+            
+            <div class="project-features" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+                <!-- Architecture -->
+                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🏗️</div>
+                    <h5 style="font-weight: bold; margin-bottom: 1rem;">Architecture</h5>
+                    <p style="color: #6c757d; line-height: 1.6;">
+                        <% if (project.title.includes('E-Commerce')) { %>
+                            RESTful API architecture with modular design, middleware for authentication, and structured error handling.
+                        <% } else if (project.title.includes('Chat')) { %>
+                            Real-time architecture using Socket.io with event-driven design and efficient message broadcasting.
+                        <% } else if (project.title.includes('Task')) { %>
+                            MVC architecture with role-based access control and comprehensive data validation.
+                        <% } else { %>
+                            Modern backend architecture with clean code principles and scalable design patterns.
+                        <% } %>
+                    </p>
+                </div>
+                <!-- Database -->
+                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🗄️</div>
+                    <h5 style="font-weight: bold; margin-bottom: 1rem;">Database Design</h5>
+                    <p style="color: #6c757d; line-height: 1.6;">
+                        <% if (project.techStack.includes('MongoDB')) { %>
+                            MongoDB with Mongoose ODM for flexible document-based storage and efficient querying.
+                        <% } else if (project.techStack.includes('PostgreSQL')) { %>
+                            PostgreSQL with Sequelize ORM for relational data integrity and complex queries.
+                        <% } else { %>
+                            Optimized database design with proper indexing and relationship management.
+                        <% } %>
+                    </p>
+                </div>
 
-                        <!-- Database -->
-                        <div class="col-md-6 mb-4">
-                            <div class="card h-100">
-                                <div class="card-body text-center">
-                                    <i class="fas fa-database fa-3x text-success mb-3"></i>
-                                    <h5 class="card-title">Database Design</h5>
-                                    <p class="card-text">
-                                        <% if (project.techStack.includes('MongoDB')) { %>
-                                            MongoDB with Mongoose ODM for flexible document-based storage and efficient querying.
-                                        <% } else if (project.techStack.includes('PostgreSQL')) { %>
-                                            PostgreSQL with Sequelize ORM for relational data integrity and complex queries.
-                                        <% } else { %>
-                                            Optimized database design with proper indexing and relationship management.
-                                        <% } %>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                <!-- Security -->
+                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🔒</div>
+                    <h5 style="font-weight: bold; margin-bottom: 1rem;">Security</h5>
+                    <p style="color: #6c757d; line-height: 1.6;">
+                        JWT-based authentication, password hashing with bcrypt, input validation, 
+                        and rate limiting for API protection.
+                    </p>
+                </div>
 
-                        <!-- Security -->
-                        <div class="col-md-6 mb-4">
-                            <div class="card h-100">
-                                <div class="card-body text-center">
-                                    <i class="fas fa-shield-alt fa-3x text-warning mb-3"></i>
-                                    <h5 class="card-title">Security</h5>
-                                    <p class="card-text">
-                                        JWT-based authentication, password hashing with bcrypt, input validation, 
-                                        and rate limiting for API protection.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Performance -->
-                        <div class="col-md-6 mb-4">
-                            <div class="card h-100">
-                                <div class="card-body text-center">
-                                    <i class="fas fa-tachometer-alt fa-3x text-info mb-3"></i>
-                                    <h5 class="card-title">Performance</h5>
-                                    <p class="card-text">
-                                        Optimized queries, efficient caching strategies, and proper error handling 
-                                        for fast and reliable performance.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Performance -->
+                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">⚡</div>
+                    <h5 style="font-weight: bold; margin-bottom: 1rem;">Performance</h5>
+                    <p style="color: #6c757d; line-height: 1.6;">
+                        Optimized queries, efficient caching strategies, and proper error handling 
+                        for fast and reliable performance.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Related Projects -->
-    <section class="py-5">
-        <div class="container">
-            <div class="text-center mb-5" data-aos="fade-up">
-                <h3 class="h2 mb-3">Other Projects You Might Like</h3>
-                <p class="lead text-muted">Explore more of my backend development work</p>
+    <section style="padding: 80px 0;">
+        <div class="project-container" style="max-width: 1000px; margin: 0 auto; padding: 0 20px;">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h3 style="font-size: 2rem; margin-bottom: 1rem;">Other Projects You Might Like</h3>
+                <p style="font-size: 1.1rem; color: #6c757d;">Explore more of my backend development work</p>
             </div>
             
-            <div class="row">
-                <div class="col-12 text-center">
-                    <a href="/projects" class="btn btn-primary btn-lg">
-                        <i class="fas fa-laptop-code me-2"></i>View All Projects
-                    </a>
-                    <a href="/contact" class="btn btn-outline-primary btn-lg ms-3">
-                        <i class="fas fa-envelope me-2"></i>Discuss Your Project
-                    </a>
-                </div>
+            <div style="text-align: center;">
+                <a href="/projects" style="background-color: #0d6efd; color: white; padding: 12px 32px; text-decoration: none; border-radius: 8px; font-size: 1.1rem; margin-right: 1rem; display: inline-block; transition: background-color 0.3s ease;">
+                    💻 View All Projects
+                </a>
+                <a href="/contact" style="border: 2px solid #0d6efd; color: #0d6efd; background-color: transparent; padding: 10px 30px; text-decoration: none; border-radius: 8px; font-size: 1.1rem; display: inline-block; transition: all 0.3s ease;">
+                    ✉️ Discuss Your Project
+                </a>
             </div>
         </div>
     </section>
 </div>
+
+<style>
+@media (max-width: 768px) {
+    .project-features {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+    
+    .project-container {
+        padding: 0 15px !important;
+    }
+    
+    .project-hero {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+        text-align: center !important;
+    }
+    
+    .project-hero h1 {
+        font-size: 2rem !important;
+    }
+    
+    .project-hero .tech-stack {
+        justify-content: center !important;
+    }
+    
+    .project-links a {
+        display: block !important;
+        margin-bottom: 1rem !important;
+        margin-right: 0 !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-hero h1 {
+        font-size: 1.75rem !important;
+    }
+    
+    .project-container {
+        padding: 0 10px !important;
+    }
+    
+    section {
+        padding: 60px 0 !important;
+    }
+}
+
+/* Dark mode styles */
+[data-theme="dark"] .project-container {
+    color: #f8f9fa;
+}
+
+[data-theme="dark"] section {
+    background-color: #212529 !important;
+}
+
+[data-theme="dark"] section:nth-child(even) {
+    background-color: #343a40 !important;
+}
+
+[data-theme="dark"] .project-features > div {
+    background-color: #343a40 !important;
+    color: #f8f9fa !important;
+}
+
+[data-theme="dark"] .project-features h5 {
+    color: #f8f9fa !important;
+}
+
+[data-theme="dark"] .project-features p {
+    color: #adb5bd !important;
+}
+</style>
 
 <%- include('partials/footer') %>
