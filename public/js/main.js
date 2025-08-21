@@ -35,21 +35,14 @@ document.addEventListener('DOMContentLoaded', function() {
 // Theme Toggle Functions
 function initializeThemeToggle() {
     const themeToggle = document.getElementById('themeToggle');
-    const themeToggleDesktop = document.getElementById('themeToggleDesktop');
-    const themeIcon = document.getElementById('themeIcon');
-    const themeIconDesktop = document.getElementById('themeIconDesktop');
     
     // Get saved theme or default to light
     const savedTheme = localStorage.getItem('portfolio-theme') || 'light';
     setTheme(savedTheme);
     
-    // Add event listeners for both mobile and desktop toggle buttons
+    // Add event listener for theme toggle button
     if (themeToggle) {
         themeToggle.addEventListener('click', toggleTheme);
-    }
-    
-    if (themeToggleDesktop) {
-        themeToggleDesktop.addEventListener('click', toggleTheme);
     }
     
     function toggleTheme() {
@@ -62,12 +55,12 @@ function initializeThemeToggle() {
     function setTheme(theme) {
         document.body.setAttribute('data-theme', theme);
         
-        // Update icon for both buttons
-        const iconClass = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-        if (themeIcon) themeIcon.className = iconClass;
-        if (themeIconDesktop) themeIconDesktop.className = iconClass;
+        // Update theme toggle button icon
+        if (themeToggle) {
+            themeToggle.innerHTML = theme === 'dark' ? '☀️' : '🌙';
+        }
         
-        // Update Bootstrap theme colors
+        // Apply theme to body and document
         if (theme === 'dark') {
             document.documentElement.setAttribute('data-bs-theme', 'dark');
         } else {

@@ -48,7 +48,7 @@
 }
 </style>
 
-<div style="padding: 0;">
+<div style="padding: 0; padding-top: 80px;">
     <!-- Hero Section -->
     <section class="about-hero" style="background-color: #0d6efd; color: white; padding: 60px 0;">
         <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
@@ -293,110 +293,6 @@
                 </a>
                 <a href="/contact" style="border: 2px solid #0d6efd; color: #0d6efd; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold;">
                     Get In Touch
-                </a>
-            </div>
-        </div>
-    </section>
-</div>
-
-<%- include('partials/footer') %>
-            <div class="text-center mb-5" data-aos="fade-up">
-                <h3 class="h2 mb-3">Technical Skills</h3>
-                <p class="lead text-muted">Technologies and tools I work with</p>
-            </div>
-
-            <div class="row">
-                <!-- Backend Skills -->
-                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-server fa-3x text-primary mb-3"></i>
-                            <h5 class="card-title">Backend Development</h5>
-                            <div class="skills-list">
-                                <% skills.backend.forEach(skill => { %>
-                                    <span class="badge bg-primary me-1 mb-2"><%= skill %></span>
-                                <% }) %>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Database Skills -->
-                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-database fa-3x text-success mb-3"></i>
-                            <h5 class="card-title">Databases</h5>
-                            <div class="skills-list">
-                                <% skills.databases.forEach(skill => { %>
-                                    <span class="badge bg-success me-1 mb-2"><%= skill %></span>
-                                <% }) %>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Authentication Skills -->
-                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-shield-alt fa-3x text-warning mb-3"></i>
-                            <h5 class="card-title">Authentication & Security</h5>
-                            <div class="skills-list">
-                                <% skills.authentication.forEach(skill => { %>
-                                    <span class="badge bg-warning text-dark me-1 mb-2"><%= skill %></span>
-                                <% }) %>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tools Skills -->
-                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="400">
-                    <div class="card h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-tools fa-3x text-info mb-3"></i>
-                            <h5 class="card-title">Tools & Platforms</h5>
-                            <div class="skills-list">
-                                <% skills.tools.forEach(skill => { %>
-                                    <span class="badge bg-info me-1 mb-2"><%= skill %></span>
-                                <% }) %>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testing Skills -->
-                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="500">
-                    <div class="card h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-vial fa-3x text-danger mb-3"></i>
-                            <h5 class="card-title">Testing</h5>
-                            <div class="skills-list">
-                                <% skills.testing.forEach(skill => { %>
-                                    <span class="badge bg-danger me-1 mb-2"><%= skill %></span>
-                                <% }) %>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="py-5">
-        <div class="container text-center" data-aos="fade-up">
-            <h3 class="h2 mb-3">Interested in Working Together?</h3>
-            <p class="lead mb-4">
-                I'm always excited to take on new challenges and collaborate on interesting projects.
-            </p>
-            <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
-                <a href="/projects" class="btn btn-primary btn-lg">
-                    <i class="fas fa-laptop-code me-2"></i>View My Projects
-                </a>
-                <a href="/contact" class="btn btn-outline-primary btn-lg">
-                    <i class="fas fa-envelope me-2"></i>Get In Touch
                 </a>
             </div>
         </div>

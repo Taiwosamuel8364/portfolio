@@ -1,51 +1,180 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-        <a class="navbar-brand fw-bold" href="/">
-            <i class="fas fa-code me-2"></i>Samuel
+<style>
+/* Dark mode styles */
+[data-theme="dark"] {
+    --bg-primary: #121212;
+    --bg-secondary: #1e1e1e;
+    --bg-tertiary: #2d2d2d;
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    --text-muted: #888888;
+    --border-color: #404040;
+    --shadow-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] body {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] section {
+    background-color: var(--bg-primary) !important;
+}
+
+[data-theme="dark"] section[style*="background-color: #f8f9fa"] {
+    background-color: var(--bg-secondary) !important;
+}
+
+[data-theme="dark"] section[style*="background: white"] {
+    background-color: var(--bg-tertiary) !important;
+}
+
+[data-theme="dark"] div[style*="background: white"] {
+    background-color: var(--bg-tertiary) !important;
+}
+
+[data-theme="dark"] div[style*="background-color: white"] {
+    background-color: var(--bg-tertiary) !important;
+}
+
+[data-theme="dark"] div[style*="background-color: #f8f9fa"] {
+    background-color: var(--bg-secondary) !important;
+}
+
+[data-theme="dark"] p,
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] p[style*="color: #6c757d"] {
+    color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] div[style*="border: 1px solid #e9ecef"] {
+    border-color: var(--border-color) !important;
+    background-color: var(--bg-tertiary) !important;
+}
+
+[data-theme="dark"] div[style*="box-shadow"] {
+    box-shadow: 0 4px 6px var(--shadow-color) !important;
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+    background-color: var(--bg-tertiary) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .navbar-nav .nav-link:hover {
+    color: #ffc107 !important;
+}
+
+/* Keep gradients and primary colors unchanged in dark mode */
+[data-theme="dark"] section[style*="linear-gradient"],
+[data-theme="dark"] section[style*="background: linear-gradient"] {
+    /* Keep original gradient backgrounds */
+}
+</style>
+
+<nav style="background-color: #212529; padding: 1rem 0; position: fixed; top: 0; left: 0; right: 0; z-index: 1030; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between;">
+        <a href="/" style="color: white; text-decoration: none; font-size: 1.5rem; font-weight: bold; display: flex; align-items: center;">
+            💻 Samuel
         </a>
         
-        <!-- Theme Toggle -->
-        <button class="btn btn-outline-light btn-sm me-3 d-lg-none" id="themeToggle">
-            <i class="fas fa-moon" id="themeIcon"></i>
+        <!-- Mobile Menu Toggle -->
+        <button id="mobileMenuToggle" style="display: none; background: none; border: 1px solid rgba(255,255,255,0.3); color: white; padding: 8px 12px; border-radius: 4px; cursor: pointer;">
+            ☰
         </button>
         
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link <%= currentPage === 'home' ? 'active' : '' %>" href="/">
-                        <i class="fas fa-home me-1"></i>Home
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <%= currentPage === 'about' ? 'active' : '' %>" href="/about">
-                        <i class="fas fa-user me-1"></i>About
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <%= currentPage === 'projects' ? 'active' : '' %>" href="/projects">
-                        <i class="fas fa-laptop-code me-1"></i>Projects
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <%= currentPage === 'resume' ? 'active' : '' %>" href="/resume">
-                        <i class="fas fa-file-alt me-1"></i>Resume
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <%= currentPage === 'contact' ? 'active' : '' %>" href="/contact">
-                        <i class="fas fa-envelope me-1"></i>Contact
-                    </a>
-                </li>
-                <li class="nav-item d-none d-lg-block">
-                    <button class="btn btn-outline-light btn-sm ms-2" id="themeToggleDesktop">
-                        <i class="fas fa-moon" id="themeIconDesktop"></i>
-                    </button>
-                </li>
-            </ul>
+        <!-- Navigation Menu -->
+        <div id="navMenu" style="display: flex; align-items: center; gap: 2rem;">
+            <div style="display: flex; gap: 1.5rem;">
+                <a href="/" style="color: <%= currentPage === 'home' ? '#ffc107' : 'white' %>; text-decoration: none; font-weight: 500; padding: 8px 0; transition: color 0.3s ease;">
+                    🏠 Home
+                </a>
+                <a href="/about" style="color: <%= currentPage === 'about' ? '#ffc107' : 'white' %>; text-decoration: none; font-weight: 500; padding: 8px 0; transition: color 0.3s ease;">
+                    👤 About
+                </a>
+                <a href="/projects" style="color: <%= currentPage === 'projects' ? '#ffc107' : 'white' %>; text-decoration: none; font-weight: 500; padding: 8px 0; transition: color 0.3s ease;">
+                    💻 Projects
+                </a>
+                <a href="/resume" style="color: <%= currentPage === 'resume' ? '#ffc107' : 'white' %>; text-decoration: none; font-weight: 500; padding: 8px 0; transition: color 0.3s ease;">
+                    📄 Resume
+                </a>
+                <a href="/contact" style="color: <%= currentPage === 'contact' ? '#ffc107' : 'white' %>; text-decoration: none; font-weight: 500; padding: 8px 0; transition: color 0.3s ease;">
+                    ✉️ Contact
+                </a>
+            </div>
+            
+            <!-- Theme Toggle -->
+            <button id="themeToggle" style="background: none; border: 1px solid rgba(255,255,255,0.3); color: white; padding: 8px 12px; border-radius: 4px; cursor: pointer; font-size: 1rem;">
+                🌙
+            </button>
         </div>
     </div>
 </nav>
+
+<style>
+@media (max-width: 768px) {
+    #mobileMenuToggle {
+        display: block !important;
+    }
+    
+    #navMenu {
+        display: none !important;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #212529;
+        padding: 1rem 20px;
+        flex-direction: column;
+        gap: 1rem !important;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    #navMenu.show {
+        display: flex !important;
+    }
+    
+    #navMenu > div:first-child {
+        flex-direction: column !important;
+        gap: 1rem !important;
+        width: 100%;
+    }
+    
+    #navMenu a {
+        padding: 12px 0 !important;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        width: 100%;
+        display: block;
+    }
+    
+    #themeToggle {
+        align-self: center;
+        margin-top: 1rem;
+    }
+}
+</style>
+
+<script>
+// Mobile menu toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileToggle = document.getElementById('mobileMenuToggle');
+    const navMenu = document.getElementById('navMenu');
+    
+    if (mobileToggle && navMenu) {
+        mobileToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('show');
+            mobileToggle.innerHTML = navMenu.classList.contains('show') ? '✕' : '☰';
+        });
+    }
+});
+</script>
