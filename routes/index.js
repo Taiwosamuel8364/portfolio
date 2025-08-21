@@ -15,6 +15,31 @@ router.get('/test', (req, res) => {
   }
 });
 
+// Simple home test
+router.get('/home-simple', (req, res) => {
+  console.log('Simple home route called');
+  try {
+    let featuredProjects = [];
+    
+    try {
+      const projects = require('../data/projects');
+      featuredProjects = projects.slice(0, 3);
+    } catch (projectError) {
+      console.log('Could not load projects, using empty array');
+      featuredProjects = [];
+    }
+    
+    res.render('home-simple', { 
+      title: 'Samuel - Backend Developer',
+      currentPage: 'home',
+      featuredProjects: featuredProjects
+    });
+  } catch (error) {
+    console.error('Error rendering simple home page:', error);
+    res.send('Simple home failed: ' + error.message);
+  }
+});
+
 // Home page route
 router.get('/', (req, res, next) => {
   console.log('Home route called');

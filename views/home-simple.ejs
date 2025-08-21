@@ -1,0 +1,87 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+
+<div class="container-fluid p-0">
+    <!-- Hero Section -->
+    <section class="hero-section bg-primary text-white py-5">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                    <div class="hero-content" data-aos="fade-right">
+                        <h1 class="display-4 fw-bold mb-3">
+                            Hi, I'm <span class="text-warning">Samuel</span>
+                        </h1>
+                        <h2 class="h3 mb-4">Backend Developer</h2>
+                        <p class="lead mb-4">
+                            Passionate about building robust and scalable backend solutions using Node.js, Express, and modern web technologies.
+                        </p>
+                        <div class="d-flex flex-column flex-sm-row gap-3">
+                            <a href="/about" class="btn btn-light btn-lg">
+                                <i class="fas fa-user me-2"></i>Learn More About Me
+                            </a>
+                            <a href="/projects" class="btn btn-outline-light btn-lg">
+                                <i class="fas fa-code me-2"></i>View My Work
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image text-center" data-aos="fade-left">
+                        <div class="profile-container">
+                            <img src="/images/profile.jpg" alt="Samuel" class="img-fluid rounded-circle shadow-lg profile-image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects Preview -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="display-5 fw-bold">Featured Projects</h2>
+                    <p class="lead">Some of my recent backend development work</p>
+                </div>
+            </div>
+            <div class="row">
+                <% if (featuredProjects && featuredProjects.length > 0) { %>
+                    <% featuredProjects.forEach(project => { %>
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title"><%= project.title %></h5>
+                                    <p class="card-text"><%= project.description.substring(0, 100) %>...</p>
+                                    <div class="mb-3">
+                                        <% project.technologies.slice(0, 3).forEach(tech => { %>
+                                            <span class="badge bg-primary me-1"><%= tech %></span>
+                                        <% }); %>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-transparent">
+                                    <a href="<%= project.github %>" class="btn btn-outline-primary btn-sm" target="_blank">
+                                        <i class="fab fa-github me-1"></i>Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    <% }); %>
+                <% } else { %>
+                    <div class="col-12 text-center">
+                        <p>No featured projects available at the moment.</p>
+                    </div>
+                <% } %>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center mt-4">
+                    <a href="/projects" class="btn btn-primary btn-lg">
+                        <i class="fas fa-folder-open me-2"></i>View All Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<%- include('partials/footer') %>
