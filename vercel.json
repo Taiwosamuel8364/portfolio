@@ -4,23 +4,39 @@
   "builds": [
     {
       "src": "server.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "public/**",
-      "use": "@vercel/static"
+      "use": "@vercel/node",
+      "config": {
+        "maxLambdaSize": "50mb"
+      }
     }
   ],
   "routes": [
     {
-      "src": "/public/(.*)",
-      "dest": "/public/$1"
+      "src": "/css/(.*)",
+      "dest": "/public/css/$1"
+    },
+    {
+      "src": "/js/(.*)", 
+      "dest": "/public/js/$1"
+    },
+    {
+      "src": "/images/(.*)",
+      "dest": "/public/images/$1"
+    },
+    {
+      "src": "/resume/(.*)",
+      "dest": "/public/resume/$1"
     },
     {
       "src": "/(.*)",
       "dest": "/server.js"
     }
   ],
+  "functions": {
+    "server.js": {
+      "maxDuration": 10
+    }
+  },
   "env": {
     "NODE_ENV": "production"
   }

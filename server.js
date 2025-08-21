@@ -14,12 +14,29 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Routes
-app.use('/', require('./routes/index'));
-app.use('/about', require('./routes/about'));
-app.use('/projects', require('./routes/projects'));
-app.use('/contact', require('./routes/contact'));
-app.use('/resume', require('./routes/resume'));
+// Add timeout middleware to prevent hanging requests
+app.use((req, res, next) => {
+  res.setTimeout(8000, () => {
+    res.status(408).send('Request timeout');
+  });
+  next();
+});
+
+// Health check route
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'OK', timestamp: new Date().toISOString() });
+});
+
+// Routes with error handling
+try {
+  app.use('/', require('./routes/index'));
+  app.use('/about', require('./routes/about'));
+  app.use('/projects', require('./routes/projects'));
+  app.use('/contact', require('./routes/contact'));
+  app.use('/resume', require('./routes/resume'));
+} catch (error) {
+  console.error('Error loading routes:', error);
+}
 
 // 404 handler
 app.use((req, res) => {
@@ -31,18 +48,22 @@ app.use((req, res) => {
 
 // Error handler
 app.use((err, req, res, next) => {
-  console.error(err.stack);
+  console.error('Server error:', err);
+  
+  // Don't expose error details in production
+  const isDev = process.env.NODE_ENV !== 'production';
+  
   res.status(500).render('error', { 
     title: 'Server Error',
-    error: err,
+    error: isDev ? err : { message: 'Internal Server Error' },
     currentPage: 'error'
   });
 });
 
-// Export the app for Vercel
+// For Vercel serverless functions
 module.exports = app;
 
-// Only listen when not in production (local development)
+// For local development
 if (require.main === module) {
   const PORT = process.env.PORT || 3000;
   app.listen(PORT, () => {
