@@ -1,237 +1,75 @@
 <%- include('partials/header') %>
 <%- include('partials/navbar') %>
 
-<!-- Hero Section -->
-<section class="hero-section">
-    <div class="container">
-        <div class="row min-vh-100 align-items-center">
-            <div class="col-lg-8 mx-auto text-center">
-                <div data-aos="fade-up">
-                    <h1 class="display-3 fw-bold mb-4">
-                        Hi, I'm <span class="text-warning">Samuel</span>
-                    </h1>
-                    <h2 class="h3 mb-4 text-muted">Backend Developer</h2>
-                    <p class="lead mb-5">
-                        I specialize in building robust and scalable backend systems using Node.js, Express.js, and modern databases. 
-                        Passionate about creating efficient APIs and solving complex problems.
-                    </p>
-                    <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
-                        <a href="/projects" class="btn btn-primary btn-lg">
-                            <i class="fas fa-laptop-code me-2"></i>View My Work
-                        </a>
-                        <a href="/contact" class="btn btn-outline-primary btn-lg">
-                            <i class="fas fa-envelope me-2"></i>Get In Touch
-                        </a>
+<div class="container-fluid p-0">
+    <!-- Hero Section -->
+    <section style="background-color: #0d6efd; color: white; padding: 100px 0; min-height: 100vh; display: flex; align-items: center;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; width: 100%;">
+            <div style="display: flex; flex-wrap: wrap; align-items: center; min-height: 500px;">
+                <div style="flex: 1; min-width: 300px; padding: 20px;">
+                    <div>
+                        <h1 style="font-size: 3rem; font-weight: bold; margin-bottom: 1rem;">
+                            Hi, I'm <span style="color: #ffc107;">Samuel</span>
+                        </h1>
+                        <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Backend Developer</h2>
+                        <p style="font-size: 1.25rem; margin-bottom: 2rem; line-height: 1.6;">
+                            Passionate about building robust and scalable backend solutions using Node.js, Express, and modern web technologies.
+                        </p>
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <a href="/about" style="background-color: white; color: #0d6efd; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold;">
+                                Learn More About Me
+                            </a>
+                            <a href="/projects" style="border: 2px solid white; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold;">
+                                View My Work
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div style="flex: 1; min-width: 300px; padding: 20px; text-align: center;">
+                    <div>
+                        <img src="/images/profile.jpg" alt="Samuel" style="width: 300px; height: 300px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 8px rgba(0,0,0,0.3);" onerror="this.style.display='none';">
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <!-- Scroll Indicator -->
-    <div class="scroll-indicator">
-        <a href="#about-preview" class="text-decoration-none">
-            <i class="fas fa-chevron-down fa-2x animate-bounce"></i>
-        </a>
-    </div>
-</section>
+    </section>
 
-<!-- About Preview Section -->
-<section id="about-preview" class="py-5 bg-light">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6" data-aos="fade-right">
-                <h3 class="h2 mb-4">About Me</h3>
-                <p class="mb-4">
-                    I'm a passionate backend developer with expertise in Node.js and Express.js. 
-                    I enjoy creating efficient, scalable solutions and working with modern technologies 
-                    to build robust web applications.
-                </p>
-                <div class="row">
-                    <div class="col-sm-6 mb-3">
-                        <div class="d-flex align-items-center">
-                            <i class="fas fa-server text-primary me-3"></i>
-                            <div>
-                                <h6 class="mb-0">Backend Development</h6>
-                                <small class="text-muted">Node.js, Express.js</small>
+    <!-- Featured Projects Preview -->
+    <section style="padding: 80px 0; background-color: #f8f9fa;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h2 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 1rem;">Featured Projects</h2>
+                <p style="font-size: 1.25rem; color: #6c757d;">Some of my recent backend development work</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <% if (featuredProjects && featuredProjects.length > 0) { %>
+                    <% featuredProjects.forEach(project => { %>
+                        <div style="background: white; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <h5 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem;"><%= project.title %></h5>
+                            <p style="color: #6c757d; margin-bottom: 1rem;"><%= project.description.substring(0, 100) %>...</p>
+                            <div style="margin-bottom: 1rem;">
+                                <% project.technologies.slice(0, 3).forEach(tech => { %>
+                                    <span style="background-color: #0d6efd; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; margin-right: 0.5rem;"><%= tech %></span>
+                                <% }); %>
                             </div>
+                            <a href="<%= project.github %>" target="_blank" style="color: #0d6efd; text-decoration: none; font-weight: bold;">
+                                View Code
+                            </a>
                         </div>
+                    <% }); %>
+                <% } else { %>
+                    <div style="text-align: center; grid-column: 1 / -1;">
+                        <p>No featured projects available at the moment.</p>
                     </div>
-                    <div class="col-sm-6 mb-3">
-                        <div class="d-flex align-items-center">
-                            <i class="fas fa-database text-primary me-3"></i>
-                            <div>
-                                <h6 class="mb-0">Database Design</h6>
-                                <small class="text-muted">MongoDB, PostgreSQL</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 mb-3">
-                        <div class="d-flex align-items-center">
-                            <i class="fas fa-shield-alt text-primary me-3"></i>
-                            <div>
-                                <h6 class="mb-0">Authentication</h6>
-                                <small class="text-muted">JWT, OAuth</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 mb-3">
-                        <div class="d-flex align-items-center">
-                            <i class="fas fa-cloud text-primary me-3"></i>
-                            <div>
-                                <h6 class="mb-0">Cloud Services</h6>
-                                <small class="text-muted">AWS, Heroku</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-4">
-                    <a href="/about" class="btn btn-primary">Learn More About Me</a>
-                </div>
+                <% } %>
             </div>
-            <div class="col-lg-6 mt-4 mt-lg-0" data-aos="fade-left">
-                <div class="text-center">
-                    <div class="skills-visualization">
-                        <div class="skill-item">
-                            <i class="fab fa-node-js fa-4x text-success mb-3"></i>
-                            <h6>Node.js</h6>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-server fa-4x text-primary mb-3"></i>
-                            <h6>Express.js</h6>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-database fa-4x text-info mb-3"></i>
-                            <h6>Databases</h6>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-code fa-4x text-warning mb-3"></i>
-                            <h6>APIs</h6>
-                        </div>
-                    </div>
-                </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="/projects" style="background-color: #0d6efd; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold;">
+                    View All Projects
+                </a>
             </div>
         </div>
-    </div>
-</section>
-
-<!-- Featured Projects Section -->
-<section class="py-5">
-    <div class="container">
-        <div class="text-center mb-5" data-aos="fade-up">
-            <h3 class="h2 mb-3">Featured Projects</h3>
-            <p class="lead text-muted">Here are some of my recent backend development projects</p>
-        </div>
-        
-        <div class="row">
-            <!-- Project cards will be dynamically generated -->
-            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="card h-100 project-card">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center mb-3">
-                            <i class="fas fa-shopping-cart fa-2x text-primary me-3"></i>
-                            <h5 class="card-title mb-0">E-Commerce API</h5>
-                        </div>
-                        <p class="card-text">A comprehensive REST API for e-commerce with authentication, payment processing, and inventory management.</p>
-                        <div class="mb-3">
-                            <span class="badge bg-secondary me-1">Node.js</span>
-                            <span class="badge bg-secondary me-1">Express</span>
-                            <span class="badge bg-secondary">MongoDB</span>
-                        </div>
-                    </div>
-                    <div class="card-footer bg-transparent">
-                        <div class="d-flex justify-content-between">
-                            <a href="#" class="text-decoration-none">
-                                <i class="fab fa-github me-1"></i>Code
-                            </a>
-                            <a href="#" class="text-decoration-none">
-                                <i class="fas fa-external-link-alt me-1"></i>Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="card h-100 project-card">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center mb-3">
-                            <i class="fas fa-comments fa-2x text-primary me-3"></i>
-                            <h5 class="card-title mb-0">Chat Application</h5>
-                        </div>
-                        <p class="card-text">Real-time chat application with Socket.io, featuring multiple rooms and file sharing capabilities.</p>
-                        <div class="mb-3">
-                            <span class="badge bg-secondary me-1">Socket.io</span>
-                            <span class="badge bg-secondary me-1">Node.js</span>
-                            <span class="badge bg-secondary">MongoDB</span>
-                        </div>
-                    </div>
-                    <div class="card-footer bg-transparent">
-                        <div class="d-flex justify-content-between">
-                            <a href="#" class="text-decoration-none">
-                                <i class="fab fa-github me-1"></i>Code
-                            </a>
-                            <a href="#" class="text-decoration-none">
-                                <i class="fas fa-external-link-alt me-1"></i>Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
-                <div class="card h-100 project-card">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center mb-3">
-                            <i class="fas fa-tasks fa-2x text-primary me-3"></i>
-                            <h5 class="card-title mb-0">Task Manager API</h5>
-                        </div>
-                        <p class="card-text">Project management system with team collaboration, role-based access, and comprehensive reporting.</p>
-                        <div class="mb-3">
-                            <span class="badge bg-secondary me-1">PostgreSQL</span>
-                            <span class="badge bg-secondary me-1">Express</span>
-                            <span class="badge bg-secondary">JWT</span>
-                        </div>
-                    </div>
-                    <div class="card-footer bg-transparent">
-                        <div class="d-flex justify-content-between">
-                            <a href="#" class="text-decoration-none">
-                                <i class="fab fa-github me-1"></i>Code
-                            </a>
-                            <a href="#" class="text-decoration-none">
-                                <i class="fas fa-external-link-alt me-1"></i>Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="text-center mt-4" data-aos="fade-up">
-            <a href="/projects" class="btn btn-outline-primary btn-lg">
-                View All Projects <i class="fas fa-arrow-right ms-2"></i>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- Call to Action Section -->
-<section class="py-5 bg-primary text-white">
-    <div class="container text-center" data-aos="fade-up">
-        <h3 class="h2 mb-3">Let's Work Together</h3>
-        <p class="lead mb-4">
-            I'm always interested in new opportunities and exciting projects. 
-            Let's discuss how I can help bring your ideas to life.
-        </p>
-        <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
-            <a href="/contact" class="btn btn-light btn-lg">
-                <i class="fas fa-envelope me-2"></i>Contact Me
-            </a>
-            <a href="/resume/download" class="btn btn-outline-light btn-lg">
-                <i class="fas fa-download me-2"></i>Download Resume
-            </a>
-        </div>
-    </div>
-</section>
+    </section>
+</div>
 
 <%- include('partials/footer') %>
