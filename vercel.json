@@ -4,21 +4,25 @@
   "builds": [
     {
       "src": "server.js",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": [
-          "views/**",
-          "public/**",
-          "routes/**",
-          "data/**"
-        ]
-      }
+      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/public/(.*)",
-      "dest": "/public/$1"
+      "src": "/css/(.*)",
+      "dest": "/public/css/$1"
+    },
+    {
+      "src": "/js/(.*)",
+      "dest": "/public/js/$1"
+    },
+    {
+      "src": "/images/(.*)",
+      "dest": "/public/images/$1"
+    },
+    {
+      "src": "/resume/(.*)",
+      "dest": "/public/resume/$1"
     },
     {
       "src": "/(.*)",
@@ -30,11 +34,7 @@
   },
   "functions": {
     "server.js": {
-      "maxDuration": 10
+      "maxDuration": 30
     }
-  },
-  "regions": ["iad1"],
-  "github": {
-    "silent": true
   }
 }
