@@ -1,14 +1,14 @@
 <%- include('partials/header') %>
 <%- include('partials/navbar') %>
 
-<div class="container-fluid p-0">
+<div style="padding: 0;">
     <!-- Hero Section -->
-    <section class="hero-section bg-primary text-white py-5">
-        <div class="container py-5">
-            <div class="row align-items-center">
-                <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
-                    <h1 class="display-4 fw-bold mb-4">My Projects</h1>
-                    <p class="lead">
+    <section style="background: linear-gradient(135deg, #0d6efd 0%, #0056b3 100%); color: white; padding: 80px 0;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <div style="display: flex; align-items: center; justify-content: center;">
+                <div style="max-width: 800px; text-align: center;">
+                    <h1 style="font-size: 3rem; font-weight: bold; margin-bottom: 1rem;">My Projects</h1>
+                    <p style="font-size: 1.25rem;">
                         A showcase of my backend development work and technical expertise
                     </p>
                 </div>
@@ -17,97 +17,124 @@
     </section>
 
     <!-- Filter Section -->
-    <section class="py-4 bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="d-flex flex-wrap justify-content-center gap-2" data-aos="fade-up">
-                        <a href="/projects?category=all" 
-                           class="btn <%= selectedCategory === 'all' ? 'btn-primary' : 'btn-outline-primary' %> btn-sm">
-                            All Projects
+    <section style="padding: 40px 0; background-color: #f8f9fa;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;">
+                <% if (selectedCategory === 'all') { %>
+                    <a href="/projects?category=all" 
+                       style="padding: 6px 16px; text-decoration: none; border-radius: 4px; font-size: 0.875rem; background-color: #0d6efd; color: white;">
+                        All Projects
+                    </a>
+                <% } else { %>
+                    <a href="/projects?category=all" 
+                       style="padding: 6px 16px; text-decoration: none; border-radius: 4px; font-size: 0.875rem; background-color: transparent; color: #0d6efd; border: 1px solid #0d6efd;">
+                        All Projects
+                    </a>
+                <% } %>
+                <% categories.forEach(category => { %>
+                    <% if (selectedCategory === category.toLowerCase().replace(/\s+/g, '-')) { %>
+                        <a href="/projects?category=<%= category.toLowerCase().replace(/\s+/g, '-') %>" 
+                           style="padding: 6px 16px; text-decoration: none; border-radius: 4px; font-size: 0.875rem; background-color: #0d6efd; color: white;">
+                            <%= category %>
                         </a>
-                        <% categories.forEach(category => { %>
-                            <a href="/projects?category=<%= category.toLowerCase().replace(/\s+/g, '-') %>" 
-                               class="btn <%= selectedCategory === category.toLowerCase().replace(/\s+/g, '-') ? 'btn-primary' : 'btn-outline-primary' %> btn-sm">
-                                <%= category %>
-                            </a>
-                        <% }) %>
-                    </div>
-                </div>
+                    <% } else { %>
+                        <a href="/projects?category=<%= category.toLowerCase().replace(/\s+/g, '-') %>" 
+                           style="padding: 6px 16px; text-decoration: none; border-radius: 4px; font-size: 0.875rem; background-color: transparent; color: #0d6efd; border: 1px solid #0d6efd;">
+                            <%= category %>
+                        </a>
+                    <% } %>
+                <% }) %>
             </div>
         </div>
     </section>
 
     <!-- Projects Grid -->
-    <section class="py-5">
-        <div class="container">
+    <section style="padding: 80px 0;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
             <% if (projects.length === 0) { %>
-                <div class="text-center py-5">
-                    <i class="fas fa-search fa-4x text-muted mb-3"></i>
+                <div style="text-align: center; padding: 80px 0;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem; color: #6c757d;">🔍</div>
                     <h4>No projects found</h4>
-                    <p class="text-muted">Try selecting a different category or view all projects.</p>
-                    <a href="/projects" class="btn btn-primary">View All Projects</a>
+                    <p style="color: #6c757d;">Try selecting a different category or view all projects.</p>
+                    <a href="/projects" style="background-color: #0d6efd; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold;">View All Projects</a>
                 </div>
             <% } else { %>
-                <div class="row">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
                     <% projects.forEach((project, index) => { %>
-                        <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="<%= index * 100 %>">
-                            <div class="card project-card h-100">
-                                <div class="card-img-container">
-                                    <img src="<%= project.image %>" class="card-img-top" alt="<%= project.title %>" 
-                                         onerror="this.src='/images/project-placeholder.jpg'">
-                                    <div class="card-img-overlay d-flex align-items-center justify-content-center">
-                                        <div class="text-center">
-                                            <a href="/projects/<%= project.id %>" class="btn btn-primary btn-sm">
-                                                <i class="fas fa-eye me-1"></i>View Details
-                                            </a>
-                                        </div>
-                                    </div>
+                        <div style="background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; height: 100%;" 
+                             onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 15px rgba(0,0,0,0.2)'" 
+                             onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,0.1)'">
+                            
+                            <div style="position: relative; overflow: hidden;">
+                                <img src="<%= project.image %>" 
+                                     style="width: 100%; height: 200px; object-fit: cover;" 
+                                     alt="<%= project.title %>" 
+                                     onerror="this.src='/images/project-placeholder.jpg'">
+                                <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease;"
+                                     onmouseover="this.style.opacity='1'" 
+                                     onmouseout="this.style.opacity='0'">
+                                    <a href="/projects/<%= project.id %>" 
+                                       style="background-color: #0d6efd; color: white; padding: 8px 16px; text-decoration: none; border-radius: 6px; font-size: 0.875rem;">
+                                        👁️ View Details
+                                    </a>
                                 </div>
-                                
-                                <div class="card-body d-flex flex-column">
-                                    <div class="d-flex justify-content-between align-items-start mb-2">
-                                        <h5 class="card-title mb-0"><%= project.title %></h5>
-                                        <span class="badge bg-<%= project.status === 'Completed' ? 'success' : project.status === 'In Progress' ? 'warning' : 'secondary' %>">
+                            </div>
+                            
+                            <div style="padding: 1.5rem; flex: 1; display: flex; flex-direction: column;">
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+                                    <h5 style="margin: 0; font-size: 1.25rem; font-weight: bold;"><%= project.title %></h5>
+                                    <% if (project.status === 'Completed') { %>
+                                        <span style="background-color: #28a745; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem;">
                                             <%= project.status %>
                                         </span>
-                                    </div>
-                                    
-                                    <p class="text-muted small mb-2"><%= project.category %></p>
-                                    
-                                    <p class="card-text flex-grow-1">
-                                        <%= project.description.substring(0, 120) %>...
-                                    </p>
-                                    
-                                    <!-- Tech Stack -->
-                                    <div class="mb-3">
-                                        <% project.techStack.slice(0, 3).forEach(tech => { %>
-                                            <span class="badge bg-secondary me-1 mb-1"><%= tech %></span>
-                                        <% }) %>
-                                        <% if (project.techStack.length > 3) { %>
-                                            <span class="badge bg-light text-dark">+<%= project.techStack.length - 3 %> more</span>
-                                        <% } %>
-                                    </div>
+                                    <% } else if (project.status === 'In Progress') { %>
+                                        <span style="background-color: #ffc107; color: #000; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem;">
+                                            <%= project.status %>
+                                        </span>
+                                    <% } else { %>
+                                        <span style="background-color: #6c757d; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem;">
+                                            <%= project.status %>
+                                        </span>
+                                    <% } %>
                                 </div>
                                 
-                                <div class="card-footer bg-transparent">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="btn-group btn-group-sm" role="group">
-                                            <% if (project.githubUrl) { %>
-                                                <a href="<%= project.githubUrl %>" target="_blank" class="btn btn-outline-dark">
-                                                    <i class="fab fa-github me-1"></i>Code
-                                                </a>
-                                            <% } %>
-                                            <% if (project.liveUrl) { %>
-                                                <a href="<%= project.liveUrl %>" target="_blank" class="btn btn-outline-primary">
-                                                    <i class="fas fa-external-link-alt me-1"></i>Demo
-                                                </a>
-                                            <% } %>
-                                        </div>
-                                        <a href="/projects/<%= project.id %>" class="btn btn-primary btn-sm">
-                                            Details
-                                        </a>
+                                <p style="color: #6c757d; font-size: 0.875rem; margin-bottom: 0.5rem;"><%= project.category %></p>
+                                
+                                <p style="flex: 1; margin-bottom: 1rem; line-height: 1.6;">
+                                    <%= project.description.substring(0, 120) %>...
+                                </p>
+                                
+                                <!-- Tech Stack -->
+                                <div style="margin-bottom: 1rem;">
+                                    <% project.techStack.slice(0, 3).forEach(tech => { %>
+                                        <span style="background-color: #6c757d; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; margin-right: 0.25rem; margin-bottom: 0.25rem; display: inline-block;"><%= tech %></span>
+                                    <% }) %>
+                                    <% if (project.techStack.length > 3) { %>
+                                        <span style="background-color: #f8f9fa; color: #000; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem;">+<%= project.techStack.length - 3 %> more</span>
+                                    <% } %>
+                                </div>
+                            </div>
+                            
+                            <div style="padding: 1rem 1.5rem; background-color: #f8f9fa; border-top: 1px solid #dee2e6;">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div style="display: flex; gap: 0.5rem;">
+                                        <% if (project.githubUrl) { %>
+                                            <a href="<%= project.githubUrl %>" target="_blank" 
+                                               style="border: 1px solid #495057; color: #495057; padding: 6px 12px; text-decoration: none; border-radius: 4px; font-size: 0.875rem;">
+                                                🔗 Code
+                                            </a>
+                                        <% } %>
+                                        <% if (project.liveUrl) { %>
+                                            <a href="<%= project.liveUrl %>" target="_blank" 
+                                               style="border: 1px solid #0d6efd; color: #0d6efd; padding: 6px 12px; text-decoration: none; border-radius: 4px; font-size: 0.875rem;">
+                                                🚀 Demo
+                                            </a>
+                                        <% } %>
                                     </div>
+                                    <a href="/projects/<%= project.id %>" 
+                                       style="background-color: #0d6efd; color: white; padding: 6px 12px; text-decoration: none; border-radius: 4px; font-size: 0.875rem;">
+                                        Details
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -118,41 +145,37 @@
     </section>
 
     <!-- Technology Stats -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <div class="text-center mb-5" data-aos="fade-up">
-                <h3 class="h2 mb-3">Technologies Used</h3>
-                <p class="lead text-muted">Most frequently used technologies across my projects</p>
+    <section style="padding: 80px 0; background-color: #f8f9fa;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h3 style="font-size: 2rem; margin-bottom: 1rem;">Technologies Used</h3>
+                <p style="font-size: 1.25rem; color: #6c757d;">Most frequently used technologies across my projects</p>
             </div>
             
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="tech-stats" data-aos="fade-up">
-                        <%
-                            const techCount = {};
-                            projects.forEach(project => {
-                                project.techStack.forEach(tech => {
-                                    techCount[tech] = (techCount[tech] || 0) + 1;
-                                });
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div>
+                    <%
+                        const techCount = {};
+                        projects.forEach(project => {
+                            project.techStack.forEach(tech => {
+                                techCount[tech] = (techCount[tech] || 0) + 1;
                             });
-                            const sortedTech = Object.entries(techCount)
-                                .sort(([,a], [,b]) => b - a)
-                                .slice(0, 8);
-                        %>
-                        
-                        <div class="row">
-                            <% sortedTech.forEach(([tech, count]) => { %>
-                                <div class="col-md-3 col-6 mb-3 text-center">
-                                    <div class="tech-item">
-                                        <div class="tech-circle mx-auto mb-2 d-flex align-items-center justify-content-center">
-                                            <span class="fw-bold"><%= count %></span>
-                                        </div>
-                                        <h6 class="mb-0"><%= tech %></h6>
-                                        <small class="text-muted">projects</small>
-                                    </div>
+                        });
+                        const sortedTech = Object.entries(techCount)
+                            .sort(([,a], [,b]) => b - a)
+                            .slice(0, 8);
+                    %>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem;">
+                        <% sortedTech.forEach(([tech, count]) => { %>
+                            <div style="text-align: center;">
+                                <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #0d6efd, #0056b3); color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.5rem; font-weight: bold; font-size: 1.25rem;">
+                                    <%= count %>
                                 </div>
-                            <% }) %>
-                        </div>
+                                <h6 style="margin-bottom: 0.25rem; font-weight: bold;"><%= tech %></h6>
+                                <small style="color: #6c757d;">projects</small>
+                            </div>
+                        <% }) %>
                     </div>
                 </div>
             </div>
@@ -160,19 +183,21 @@
     </section>
 
     <!-- Call to Action -->
-    <section class="py-5">
-        <div class="container text-center" data-aos="fade-up">
-            <h3 class="h2 mb-3">Like What You See?</h3>
-            <p class="lead mb-4">
+    <section style="padding: 80px 0;">
+        <div style="max-width: 800px; margin: 0 auto; padding: 0 20px; text-align: center;">
+            <h3 style="font-size: 2rem; margin-bottom: 1rem;">Like What You See?</h3>
+            <p style="font-size: 1.25rem; margin-bottom: 2rem;">
                 I'm always working on new projects and looking for exciting opportunities to collaborate.
             </p>
-            <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
-                <a href="/contact" class="btn btn-primary btn-lg">
-                    <i class="fas fa-envelope me-2"></i>Start a Project
-                </a>
-                <a href="https://github.com/Taiwosamuel8364" target="_blank" class="btn btn-outline-primary btn-lg">
-                    <i class="fab fa-github me-2"></i>View GitHub
-                </a>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                    <a href="/contact" style="background-color: #0d6efd; color: white; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-size: 1.125rem; font-weight: bold;">
+                        ✉️ Start a Project
+                    </a>
+                    <a href="https://github.com/Taiwosamuel8364" target="_blank" style="border: 2px solid #0d6efd; color: #0d6efd; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-size: 1.125rem; font-weight: bold;">
+                        🔗 View GitHub
+                    </a>
+                </div>
             </div>
         </div>
     </section>

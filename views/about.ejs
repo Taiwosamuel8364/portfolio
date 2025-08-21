@@ -1,162 +1,258 @@
 <%- include('partials/header') %>
 <%- include('partials/navbar') %>
 
-<div class="container-fluid p-0">
+<div style="padding: 0;">
     <!-- Hero Section -->
-    <section class="hero-section bg-primary text-white py-5">
-        <div class="container py-5">
-            <div class="row align-items-center">
-                <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
-                    <h1 class="display-4 fw-bold mb-4">About Me</h1>
-                    <p class="lead">
-                        Backend Developer passionate about creating robust, scalable, and efficient web applications
-                    </p>
-                </div>
+    <section style="background-color: #0d6efd; color: white; padding: 60px 0;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <div style="text-align: center;">
+                <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 1rem;">About Me</h1>
+                <p style="font-size: 1.25rem; max-width: 600px; margin: 0 auto;">
+                    Backend Developer passionate about creating robust, scalable, and efficient web applications
+                </p>
             </div>
         </div>
     </section>
 
     <!-- Main Content -->
-    <section class="py-5">
-        <div class="container">
-            <div class="row">
+    <section style="padding: 80px 0;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; align-items: start;">
                 <!-- Personal Info -->
-                <div class="col-lg-4 mb-5" data-aos="fade-right">
-                    <div class="text-center mb-4">
-                        <div class="profile-image mx-auto mb-3">
-                            <img src="/images/profile.jpg" alt="Samuel" class="rounded-circle img-fluid" style="width: 200px; height: 200px; object-fit: cover;">
+                <div style="display: flex; flex-direction: column; gap: 2rem;">
+                    <div style="text-align: center;">
+                        <div style="margin-bottom: 1rem;">
+                            <img src="/images/profile.jpg" alt="Samuel" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" onerror="this.style.display='none';">
                         </div>
-                        <h3 class="mb-1">Samuel</h3>
-                        <p class="text-muted mb-3">Backend Developer</p>
-                        <div class="social-links">
-                            <a href="https://github.com/Taiwosamuel8364/" target="_blank" class="btn btn-outline-dark btn-sm me-2">
-                                <i class="fab fa-github"></i>
+                        <h3 style="margin-bottom: 0.5rem; font-size: 1.5rem; font-weight: bold;">Samuel</h3>
+                        <p style="color: #6c757d; margin-bottom: 1rem;">Backend Developer</p>
+                        <div style="display: flex; gap: 0.5rem; justify-content: center;">
+                            <a href="https://github.com/Taiwosamuel8364/" target="_blank" style="border: 1px solid #6c757d; color: #6c757d; padding: 8px 12px; text-decoration: none; border-radius: 4px; font-size: 0.9rem;">
+                                GitHub
                             </a>
-                            <a href="https://linkedin.com/in/samuel-x" target="_blank" class="btn btn-outline-dark btn-sm me-2">
-                                <i class="fab fa-linkedin"></i>
+                            <a href="https://linkedin.com/in/samuel-x" target="_blank" style="border: 1px solid #6c757d; color: #6c757d; padding: 8px 12px; text-decoration: none; border-radius: 4px; font-size: 0.9rem;">
+                                LinkedIn
                             </a>
-                            <a href="mailto:taiwosamuel504@gmail.com" class="btn btn-outline-dark btn-sm">
-                                <i class="fas fa-envelope"></i>
+                            <a href="mailto:taiwosamuel504@gmail.com" style="border: 1px solid #6c757d; color: #6c757d; padding: 8px 12px; text-decoration: none; border-radius: 4px; font-size: 0.9rem;">
+                                Email
                             </a>
                         </div>
                     </div>
                     
                     <!-- Quick Info -->
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Quick Info</h5>
-                            <ul class="list-unstyled">
-                                <li class="mb-2">
-                                    <i class="fas fa-map-marker-alt text-primary me-2"></i>
-                                    <strong>Location:</strong> Ile-Ife, Nigeria
-                                </li>
-                                <li class="mb-2">
-                                    <i class="fas fa-envelope text-primary me-2"></i>
+                    <div style="background: white; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        <h5 style="margin-bottom: 1rem; font-size: 1.25rem; font-weight: bold;">Quick Info</h5>
+                        <div style="display: flex; flex-direction: column; gap: 1rem;">
+                            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                <span style="color: #0d6efd;">📍</span>
+                                <div>
+                                    <strong>Location:</strong> Nigeria
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                <span style="color: #0d6efd;">✉️</span>
+                                <div>
                                     <strong>Email:</strong> taiwosamuel504@gmail.com
-                                </li>
-                                <li class="mb-2">
-                                    <i class="fas fa-graduation-cap text-primary me-2"></i>
-                                    <strong>Education:</strong> Computer Engineering
-                                </li>
-                                <li class="mb-2">
-                                    <i class="fas fa-briefcase text-primary me-2"></i>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                <span style="color: #0d6efd;">🎓</span>
+                                <div>
+                                    <strong>Education:</strong> Computer Science
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                <span style="color: #0d6efd;">💼</span>
+                                <div>
                                     <strong>Experience:</strong> 3+ Years
-                                </li>
-                            </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Main Content -->
-                <div class="col-lg-8" data-aos="fade-left">
+                <div style="display: flex; flex-direction: column; gap: 3rem;">
                     <!-- Biography -->
-                    <div class="mb-5">
-                        <h3 class="mb-4">My Story</h3>
-                        <p class="mb-3">
-                            Hello! I'm Samuel, a passionate backend developer with a strong foundation in Node.js and Express.js. 
-                            My journey into programming started during my computer Engineering studies, where I discovered my love for 
-                            building efficient and scalable server-side applications.
-                        </p>
-                        <p class="mb-3">
-                            With over 3 years of experience in backend development, I specialize in creating robust APIs, 
-                            implementing secure authentication systems, and designing efficient database architectures. 
-                            I'm particularly passionate about writing clean, maintainable code and following best practices 
-                            in software development.
-                        </p>
-                        <p class="mb-3">
-                            When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, 
-                            or sharing my knowledge with the developer community through blogs and mentoring.
-                        </p>
+                    <div>
+                        <h3 style="margin-bottom: 1.5rem; font-size: 1.75rem; font-weight: bold;">My Story</h3>
+                        <div style="line-height: 1.6; color: #495057;">
+                            <p style="margin-bottom: 1rem;">
+                                Hello! I'm Samuel, a passionate backend developer with a strong foundation in Node.js and Express.js. 
+                                My journey into programming started during my computer science studies, where I discovered my love for 
+                                building efficient and scalable server-side applications.
+                            </p>
+                            <p style="margin-bottom: 1rem;">
+                                With over 3 years of experience in backend development, I specialize in creating robust APIs, 
+                                implementing secure authentication systems, and designing efficient database architectures. 
+                                I'm particularly passionate about writing clean, maintainable code and following best practices 
+                                in software development.
+                            </p>
+                            <p style="margin-bottom: 0;">
+                                When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, 
+                                or sharing my knowledge with the developer community through blogs and mentoring.
+                            </p>
+                        </div>
                     </div>
 
                     <!-- Education -->
-                    <div class="mb-5">
-                        <h3 class="mb-4">Education</h3>
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-start mb-2">
-                                    <div>
-                                        <h5 class="mb-1">Bachelor of Science in Computer Engineering/h5>
-                                        <p class="text-muted mb-0">Obafemi Awolowo University</p>
-                                    </div>
-                                    <span class="badge bg-primary">2021 - Present</span>
+                    <div>
+                        <h3 style="margin-bottom: 1.5rem; font-size: 1.75rem; font-weight: bold;">Education</h3>
+                        <div style="background: white; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                                <div>
+                                    <h5 style="margin-bottom: 0.5rem; font-size: 1.25rem; font-weight: bold;">Bachelor of Science in Computer Science</h5>
+                                    <p style="color: #6c757d; margin: 0;">University Name</p>
                                 </div>
-                                <p class="mb-0">
-                                    Focused on software engineering, data structures, algorithms, and database systems. 
-                                    Graduated with honors and completed several projects in web development and system design.
-                                </p>
+                                <span style="background-color: #0d6efd; color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem;">2018 - 2022</span>
                             </div>
+                            <p style="margin: 0; line-height: 1.6;">
+                                Focused on software engineering, data structures, algorithms, and database systems. 
+                                Graduated with honors and completed several projects in web development and system design.
+                            </p>
                         </div>
                     </div>
 
                     <!-- Experience -->
-                    <div class="mb-5">
-                        <h3 class="mb-4">Experience</h3>
-                        <div class="timeline">
-                            <div class="card mb-3">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between align-items-start mb-2">
-                                        <div>
-                                            <h5 class="mb-1">Backend Developer</h5>
-                                            <p class="text-muted mb-0">Software laboratory, Obafemi Awolowo University</p>
-                                        </div>
-                                        <span class="badge bg-primary">2022 - Present</span>
+                    <div>
+                        <h3 style="margin-bottom: 1.5rem; font-size: 1.75rem; font-weight: bold;">Experience</h3>
+                        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                            <div style="background: white; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                                    <div>
+                                        <h5 style="margin-bottom: 0.5rem; font-size: 1.25rem; font-weight: bold;">Backend Developer</h5>
+                                        <p style="color: #6c757d; margin: 0;">Tech Company Name</p>
                                     </div>
-                                    <ul class="mb-0">
-                                        <li>Developed and maintained RESTful APIs using Node.js and Express.js</li>
-                                        <li>Implemented authentication and authorization systems with JWT</li>
-                                        <li>Optimized database queries and improved application performance by 40%</li>
-                                        <li>Collaborated with frontend developers to integrate APIs</li>
-                                    </ul>
+                                    <span style="background-color: #0d6efd; color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem;">2022 - Present</span>
                                 </div>
+                                <ul style="margin: 0; padding-left: 1.5rem; line-height: 1.6;">
+                                    <li>Developed and maintained RESTful APIs using Node.js and Express.js</li>
+                                    <li>Implemented authentication and authorization systems with JWT</li>
+                                    <li>Optimized database queries and improved application performance by 40%</li>
+                                    <li>Collaborated with frontend developers to integrate APIs</li>
+                                </ul>
                             </div>
                             
-                            <div class="card mb-3">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between align-items-start mb-2">
-                                        <div>
-                                            <h5 class="mb-1">Junior Developer</h5>
-                                            <p class="text-muted mb-0">Startup Company</p>
-                                        </div>
-                                        <span class="badge bg-secondary">2021 - 2022</span>
+                            <div style="background: white; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                                    <div>
+                                        <h5 style="margin-bottom: 0.5rem; font-size: 1.25rem; font-weight: bold;">Junior Developer</h5>
+                                        <p style="color: #6c757d; margin: 0;">Startup Company</p>
                                     </div>
-                                    <ul class="mb-0">
-                                        <li>Built web applications using Node.js and MongoDB</li>
-                                        <li>Participated in code reviews and learned best practices</li>
-                                        <li>Contributed to the development of microservices architecture</li>
-                                    </ul>
+                                    <span style="background-color: #6c757d; color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem;">2021 - 2022</span>
                                 </div>
+                                <ul style="margin: 0; padding-left: 1.5rem; line-height: 1.6;">
+                                    <li>Built web applications using Node.js and MongoDB</li>
+                                    <li>Participated in code reviews and learned best practices</li>
+                                    <li>Contributed to the development of microservices architecture</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    <!-- Skills Section -->
+    <section style="padding: 80px 0; background-color: #f8f9fa;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h3 style="font-size: 2rem; font-weight: bold; margin-bottom: 1rem;">Technical Skills</h3>
+                <p style="font-size: 1.25rem; color: #6c757d;">Technologies and tools I work with</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <!-- Backend Skills -->
+                <div style="background: white; border-radius: 8px; padding: 2rem; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🖥️</div>
+                    <h5 style="margin-bottom: 1rem; font-size: 1.25rem; font-weight: bold;">Backend Development</h5>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+                        <span style="background-color: #0d6efd; color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem;">Node.js</span>
+                        <span style="background-color: #0d6efd; color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem;">Express.js</span>
+                        <span style="background-color: #0d6efd; color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem;">RESTful APIs</span>
+                        <span style="background-color: #0d6efd; color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem;">GraphQL</span>
+                        <span style="background-color: #0d6efd; color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem;">Socket.io</span>
+                        <span style="background-color: #0d6efd; color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem;">Microservices</span>
+                    </div>
+                </div>
+
+                <!-- Database Skills -->
+                <div style="background: white; border-radius: 8px; padding: 2rem; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🗄️</div>
+                    <h5 style="margin-bottom: 1rem; font-size: 1.25rem; font-weight: bold;">Databases</h5>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+                        <span style="background-color: #28a745; color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem;">MongoDB</span>
+                        <span style="background-color: #28a745; color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem;">PostgreSQL</span>
+                        <span style="background-color: #28a745; color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem;">MySQL</span>
+                        <span style="background-color: #28a745; color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem;">Redis</span>
+                        <span style="background-color: #28a745; color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem;">Mongoose</span>
+                        <span style="background-color: #28a745; color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem;">Sequelize</span>
+                    </div>
+                </div>
+
+                <!-- Authentication Skills -->
+                <div style="background: white; border-radius: 8px; padding: 2rem; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🔐</div>
+                    <h5 style="margin-bottom: 1rem; font-size: 1.25rem; font-weight: bold;">Authentication & Security</h5>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+                        <span style="background-color: #ffc107; color: #000; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem;">JWT</span>
+                        <span style="background-color: #ffc107; color: #000; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem;">OAuth 2.0</span>
+                        <span style="background-color: #ffc107; color: #000; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem;">Passport.js</span>
+                        <span style="background-color: #ffc107; color: #000; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem;">Session Management</span>
+                        <span style="background-color: #ffc107; color: #000; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem;">Role-based Access Control</span>
+                    </div>
+                </div>
+
+                <!-- Tools Skills -->
+                <div style="background: white; border-radius: 8px; padding: 2rem; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🛠️</div>
+                    <h5 style="margin-bottom: 1rem; font-size: 1.25rem; font-weight: bold;">Tools & Platforms</h5>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+                        <span style="background-color: #17a2b8; color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem;">Git & GitHub</span>
+                        <span style="background-color: #17a2b8; color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem;">Docker</span>
+                        <span style="background-color: #17a2b8; color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem;">AWS</span>
+                        <span style="background-color: #17a2b8; color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem;">Heroku</span>
+                        <span style="background-color: #17a2b8; color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem;">Postman</span>
+                        <span style="background-color: #17a2b8; color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem;">VS Code</span>
+                    </div>
+                </div>
+
+                <!-- Testing Skills -->
+                <div style="background: white; border-radius: 8px; padding: 2rem; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🧪</div>
+                    <h5 style="margin-bottom: 1rem; font-size: 1.25rem; font-weight: bold;">Testing</h5>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+                        <span style="background-color: #dc3545; color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem;">Jest</span>
+                        <span style="background-color: #dc3545; color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem;">Mocha</span>
+                        <span style="background-color: #dc3545; color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem;">Chai</span>
+                        <span style="background-color: #dc3545; color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem;">Supertest</span>
+                        <span style="background-color: #dc3545; color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem;">Unit Testing</span>
+                        <span style="background-color: #dc3545; color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem;">Integration Testing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Skills Section -->
-    <section class="py-5 bg-light">
-        <div class="container">
+    <!-- Call to Action -->
+    <section style="padding: 80px 0;">
+        <div style="max-width: 800px; margin: 0 auto; padding: 0 20px; text-align: center;">
+            <h3 style="font-size: 2rem; font-weight: bold; margin-bottom: 1rem;">Interested in Working Together?</h3>
+            <p style="font-size: 1.25rem; color: #6c757d; margin-bottom: 2rem;">
+                I'm always excited to take on new challenges and collaborate on interesting projects.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="/projects" style="background-color: #0d6efd; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold;">
+                    View My Projects
+                </a>
+                <a href="/contact" style="border: 2px solid #0d6efd; color: #0d6efd; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold;">
+                    Get In Touch
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<%- include('partials/footer') %>
             <div class="text-center mb-5" data-aos="fade-up">
                 <h3 class="h2 mb-3">Technical Skills</h3>
                 <p class="lead text-muted">Technologies and tools I work with</p>
