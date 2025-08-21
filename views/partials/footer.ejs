@@ -1,52 +1,81 @@
     <!-- Footer -->
-    <footer class="bg-dark text-light py-4 mt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5 class="mb-3">Samuel</h5>
-                    <p class="mb-2">Backend Developer passionate about creating robust and scalable web applications.</p>
-                    <div class="social-links">
-                        <a href="https://github.com/yourusername" target="_blank" class="text-light me-3">
-                            <i class="fab fa-github fa-lg"></i>
+    <footer style="background-color: #212529; color: #f8f9fa; padding: 40px 0 20px 0; margin-top: 40px;">
+        <style>
+        @media (max-width: 768px) {
+            .footer-container {
+                padding: 0 20px !important;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+                text-align: center !important;
+            }
+            .footer-bottom {
+                flex-direction: column !important;
+                gap: 1rem !important;
+                text-align: center !important;
+            }
+            .social-links {
+                justify-content: center !important;
+            }
+            .footer-section h5, .footer-section h6 {
+                text-align: center !important;
+            }
+        }
+        @media (max-width: 480px) {
+            .footer-container {
+                padding: 0 15px !important;
+            }
+            .social-links a {
+                font-size: 1.25rem !important;
+                margin: 0 8px !important;
+            }
+        }
+        </style>
+        
+        <div class="footer-container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <div class="footer-grid" style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 2rem;">
+                <div class="footer-section">
+                    <h5 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem;">Samuel</h5>
+                    <p style="margin-bottom: 1rem; line-height: 1.6;">Backend Developer passionate about creating robust and scalable web applications.</p>
+                    <div class="social-links" style="display: flex; gap: 1rem;">
+                        <a href="https://github.com/yourusername" target="_blank" style="color: #f8f9fa; text-decoration: none; font-size: 1.5rem;">
+                            🐙
                         </a>
-                        <a href="https://linkedin.com/in/samuel-x" target="_blank" class="text-light me-3">
-                            <i class="fab fa-linkedin fa-lg"></i>
+                        <a href="https://linkedin.com/in/samuel-x" target="_blank" style="color: #f8f9fa; text-decoration: none; font-size: 1.5rem;">
+                            💼
                         </a>
-                        <a href="mailto:your.taiwosamuel504@gmail.com" class="text-light me-3">
-                            <i class="fas fa-envelope fa-lg"></i>
+                        <a href="mailto:taiwosamuel504@gmail.com" style="color: #f8f9fa; text-decoration: none; font-size: 1.5rem;">
+                            ✉️
                         </a>
-                        <a href="https://twitter.com/SamuelT83648296" target="_blank" class="text-light">
-                            <i class="fab fa-twitter fa-lg"></i>
+                        <a href="https://twitter.com/SamuelT83648296" target="_blank" style="color: #f8f9fa; text-decoration: none; font-size: 1.5rem;">
+                            🐦
                         </a>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <h6 class="mb-3">Quick Links</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="/" class="text-light text-decoration-none">Home</a></li>
-                        <li><a href="/about" class="text-light text-decoration-none">About</a></li>
-                        <li><a href="/projects" class="text-light text-decoration-none">Projects</a></li>
-                        <li><a href="/contact" class="text-light text-decoration-none">Contact</a></li>
+                <div class="footer-section">
+                    <h6 style="font-size: 1rem; font-weight: bold; margin-bottom: 1rem;">Quick Links</h6>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 0.5rem;"><a href="/" style="color: #f8f9fa; text-decoration: none;">Home</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="/about" style="color: #f8f9fa; text-decoration: none;">About</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="/projects" style="color: #f8f9fa; text-decoration: none;">Projects</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="/contact" style="color: #f8f9fa; text-decoration: none;">Contact</a></li>
                     </ul>
                 </div>
-                <div class="col-md-3">
-                    <h6 class="mb-3">Technologies</h6>
-                    <ul class="list-unstyled">
-                        <li class="text-light">Node.js</li>
-                        <li class="text-light">Express.js</li>
-                        <li class="text-light">MongoDB</li>
-                        <li class="text-light">PostgreSQL</li>
+                <div class="footer-section">
+                    <h6 style="font-size: 1rem; font-weight: bold; margin-bottom: 1rem;">Technologies</h6>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="color: #f8f9fa; margin-bottom: 0.5rem;">Node.js</li>
+                        <li style="color: #f8f9fa; margin-bottom: 0.5rem;">Express.js</li>
+                        <li style="color: #f8f9fa; margin-bottom: 0.5rem;">MongoDB</li>
+                        <li style="color: #f8f9fa; margin-bottom: 0.5rem;">PostgreSQL</li>
                     </ul>
                 </div>
             </div>
-            <hr class="my-4">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <p class="mb-0">&copy; <%= new Date().getFullYear() %> Samuel. All rights reserved.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <p class="mb-0">Built with <i class="fas fa-heart text-danger"></i> using Node.js & Express</p>
-                </div>
+            <hr style="border: none; border-top: 1px solid #495057; margin: 2rem 0;">
+            <div class="footer-bottom" style="display: flex; align-items: center; justify-content: space-between;">
+                <p style="margin: 0;">&copy; <%= new Date().getFullYear() %> Samuel. All rights reserved.</p>
+                <p style="margin: 0;">Built with ❤️ using Node.js & Express</p>
             </div>
         </div>
     </footer>
