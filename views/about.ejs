@@ -1,0 +1,263 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+
+<div class="container-fluid p-0">
+    <!-- Hero Section -->
+    <section class="hero-section bg-primary text-white py-5">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+                    <h1 class="display-4 fw-bold mb-4">About Me</h1>
+                    <p class="lead">
+                        Backend Developer passionate about creating robust, scalable, and efficient web applications
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Personal Info -->
+                <div class="col-lg-4 mb-5" data-aos="fade-right">
+                    <div class="text-center mb-4">
+                        <div class="profile-image mx-auto mb-3">
+                            <img src="/images/profile.jpg" alt="Samuel" class="rounded-circle img-fluid" style="width: 200px; height: 200px; object-fit: cover;">
+                        </div>
+                        <h3 class="mb-1">Samuel</h3>
+                        <p class="text-muted mb-3">Backend Developer</p>
+                        <div class="social-links">
+                            <a href="https://github.com/yourusername" target="_blank" class="btn btn-outline-dark btn-sm me-2">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/yourusername" target="_blank" class="btn btn-outline-dark btn-sm me-2">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="mailto:your.email@example.com" class="btn btn-outline-dark btn-sm">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Info -->
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Quick Info</h5>
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <i class="fas fa-map-marker-alt text-primary me-2"></i>
+                                    <strong>Location:</strong> Your City, Country
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-envelope text-primary me-2"></i>
+                                    <strong>Email:</strong> your.email@example.com
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-graduation-cap text-primary me-2"></i>
+                                    <strong>Education:</strong> Computer Science
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-briefcase text-primary me-2"></i>
+                                    <strong>Experience:</strong> 3+ Years
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="col-lg-8" data-aos="fade-left">
+                    <!-- Biography -->
+                    <div class="mb-5">
+                        <h3 class="mb-4">My Story</h3>
+                        <p class="mb-3">
+                            Hello! I'm Samuel, a passionate backend developer with a strong foundation in Node.js and Express.js. 
+                            My journey into programming started during my computer science studies, where I discovered my love for 
+                            building efficient and scalable server-side applications.
+                        </p>
+                        <p class="mb-3">
+                            With over 3 years of experience in backend development, I specialize in creating robust APIs, 
+                            implementing secure authentication systems, and designing efficient database architectures. 
+                            I'm particularly passionate about writing clean, maintainable code and following best practices 
+                            in software development.
+                        </p>
+                        <p class="mb-3">
+                            When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, 
+                            or sharing my knowledge with the developer community through blogs and mentoring.
+                        </p>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="mb-5">
+                        <h3 class="mb-4">Education</h3>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <div>
+                                        <h5 class="mb-1">Bachelor of Science in Computer Science</h5>
+                                        <p class="text-muted mb-0">University Name</p>
+                                    </div>
+                                    <span class="badge bg-primary">2018 - 2022</span>
+                                </div>
+                                <p class="mb-0">
+                                    Focused on software engineering, data structures, algorithms, and database systems. 
+                                    Graduated with honors and completed several projects in web development and system design.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Experience -->
+                    <div class="mb-5">
+                        <h3 class="mb-4">Experience</h3>
+                        <div class="timeline">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <div>
+                                            <h5 class="mb-1">Backend Developer</h5>
+                                            <p class="text-muted mb-0">Tech Company Name</p>
+                                        </div>
+                                        <span class="badge bg-primary">2022 - Present</span>
+                                    </div>
+                                    <ul class="mb-0">
+                                        <li>Developed and maintained RESTful APIs using Node.js and Express.js</li>
+                                        <li>Implemented authentication and authorization systems with JWT</li>
+                                        <li>Optimized database queries and improved application performance by 40%</li>
+                                        <li>Collaborated with frontend developers to integrate APIs</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <div>
+                                            <h5 class="mb-1">Junior Developer</h5>
+                                            <p class="text-muted mb-0">Startup Company</p>
+                                        </div>
+                                        <span class="badge bg-secondary">2021 - 2022</span>
+                                    </div>
+                                    <ul class="mb-0">
+                                        <li>Built web applications using Node.js and MongoDB</li>
+                                        <li>Participated in code reviews and learned best practices</li>
+                                        <li>Contributed to the development of microservices architecture</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h3 class="h2 mb-3">Technical Skills</h3>
+                <p class="lead text-muted">Technologies and tools I work with</p>
+            </div>
+
+            <div class="row">
+                <!-- Backend Skills -->
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-server fa-3x text-primary mb-3"></i>
+                            <h5 class="card-title">Backend Development</h5>
+                            <div class="skills-list">
+                                <% skills.backend.forEach(skill => { %>
+                                    <span class="badge bg-primary me-1 mb-2"><%= skill %></span>
+                                <% }) %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Database Skills -->
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-database fa-3x text-success mb-3"></i>
+                            <h5 class="card-title">Databases</h5>
+                            <div class="skills-list">
+                                <% skills.databases.forEach(skill => { %>
+                                    <span class="badge bg-success me-1 mb-2"><%= skill %></span>
+                                <% }) %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Authentication Skills -->
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-shield-alt fa-3x text-warning mb-3"></i>
+                            <h5 class="card-title">Authentication & Security</h5>
+                            <div class="skills-list">
+                                <% skills.authentication.forEach(skill => { %>
+                                    <span class="badge bg-warning text-dark me-1 mb-2"><%= skill %></span>
+                                <% }) %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools Skills -->
+                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-tools fa-3x text-info mb-3"></i>
+                            <h5 class="card-title">Tools & Platforms</h5>
+                            <div class="skills-list">
+                                <% skills.tools.forEach(skill => { %>
+                                    <span class="badge bg-info me-1 mb-2"><%= skill %></span>
+                                <% }) %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testing Skills -->
+                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-vial fa-3x text-danger mb-3"></i>
+                            <h5 class="card-title">Testing</h5>
+                            <div class="skills-list">
+                                <% skills.testing.forEach(skill => { %>
+                                    <span class="badge bg-danger me-1 mb-2"><%= skill %></span>
+                                <% }) %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-5">
+        <div class="container text-center" data-aos="fade-up">
+            <h3 class="h2 mb-3">Interested in Working Together?</h3>
+            <p class="lead mb-4">
+                I'm always excited to take on new challenges and collaborate on interesting projects.
+            </p>
+            <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+                <a href="/projects" class="btn btn-primary btn-lg">
+                    <i class="fas fa-laptop-code me-2"></i>View My Projects
+                </a>
+                <a href="/contact" class="btn btn-outline-primary btn-lg">
+                    <i class="fas fa-envelope me-2"></i>Get In Touch
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<%- include('partials/footer') %>

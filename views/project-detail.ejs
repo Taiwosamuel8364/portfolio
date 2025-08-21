@@ -1,0 +1,195 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+
+<div class="container-fluid p-0">
+    <!-- Hero Section -->
+    <section class="hero-section bg-primary text-white py-4">
+        <div class="container py-4">
+            <div class="row align-items-center">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb text-white">
+                            <li class="breadcrumb-item"><a href="/" class="text-white-50">Home</a></li>
+                            <li class="breadcrumb-item"><a href="/projects" class="text-white-50">Projects</a></li>
+                            <li class="breadcrumb-item active text-white"><%= project.title %></li>
+                        </ol>
+                    </nav>
+                    <h1 class="display-5 fw-bold mb-2" data-aos="fade-up"><%= project.title %></h1>
+                    <p class="lead mb-0" data-aos="fade-up" data-aos-delay="100"><%= project.category %></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Details -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Project Image -->
+                <div class="col-lg-6 mb-4" data-aos="fade-right">
+                    <div class="project-image-container">
+                        <img src="<%= project.image %>" class="img-fluid rounded shadow" alt="<%= project.title %>"
+                             onerror="this.src='/images/project-placeholder.jpg'">
+                    </div>
+                    
+                    <!-- Project Links -->
+                    <div class="d-flex gap-3 mt-3">
+                        <% if (project.githubUrl) { %>
+                            <a href="<%= project.githubUrl %>" target="_blank" class="btn btn-outline-dark">
+                                <i class="fab fa-github me-2"></i>View Code
+                            </a>
+                        <% } %>
+                        <% if (project.liveUrl) { %>
+                            <a href="<%= project.liveUrl %>" target="_blank" class="btn btn-primary">
+                                <i class="fas fa-external-link-alt me-2"></i>Live Demo
+                            </a>
+                        <% } %>
+                    </div>
+                </div>
+
+                <!-- Project Info -->
+                <div class="col-lg-6" data-aos="fade-left">
+                    <!-- Status and Tech Stack -->
+                    <div class="mb-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <h6 class="me-3 mb-0">Status:</h6>
+                            <span class="badge bg-<%= project.status === 'Completed' ? 'success' : project.status === 'In Progress' ? 'warning' : 'secondary' %> fs-6">
+                                <%= project.status %>
+                            </span>
+                        </div>
+                        
+                        <h6 class="mb-2">Technology Stack:</h6>
+                        <div class="tech-stack">
+                            <% project.techStack.forEach(tech => { %>
+                                <span class="badge bg-primary me-2 mb-2"><%= tech %></span>
+                            <% }) %>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="mb-4">
+                        <h5 class="mb-3">Project Overview</h5>
+                        <p class="lead"><%= project.description %></p>
+                    </div>
+
+                    <!-- Features -->
+                    <div class="mb-4">
+                        <h5 class="mb-3">Key Features</h5>
+                        <ul class="list-unstyled">
+                            <% project.features.forEach(feature => { %>
+                                <li class="mb-2">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <%= feature %>
+                                </li>
+                            <% }) %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Details -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto" data-aos="fade-up">
+                    <h3 class="text-center mb-5">Technical Implementation</h3>
+                    
+                    <div class="row">
+                        <!-- Architecture -->
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-sitemap fa-3x text-primary mb-3"></i>
+                                    <h5 class="card-title">Architecture</h5>
+                                    <p class="card-text">
+                                        <% if (project.title.includes('E-Commerce')) { %>
+                                            RESTful API architecture with modular design, middleware for authentication, and structured error handling.
+                                        <% } else if (project.title.includes('Chat')) { %>
+                                            Real-time architecture using Socket.io with event-driven design and efficient message broadcasting.
+                                        <% } else if (project.title.includes('Task')) { %>
+                                            MVC architecture with role-based access control and comprehensive data validation.
+                                        <% } else { %>
+                                            Well-structured backend architecture following industry best practices and design patterns.
+                                        <% } %>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Database -->
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-database fa-3x text-success mb-3"></i>
+                                    <h5 class="card-title">Database Design</h5>
+                                    <p class="card-text">
+                                        <% if (project.techStack.includes('MongoDB')) { %>
+                                            MongoDB with Mongoose ODM for flexible document-based storage and efficient querying.
+                                        <% } else if (project.techStack.includes('PostgreSQL')) { %>
+                                            PostgreSQL with Sequelize ORM for relational data integrity and complex queries.
+                                        <% } else { %>
+                                            Optimized database design with proper indexing and relationship management.
+                                        <% } %>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Security -->
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-shield-alt fa-3x text-warning mb-3"></i>
+                                    <h5 class="card-title">Security</h5>
+                                    <p class="card-text">
+                                        JWT-based authentication, password hashing with bcrypt, input validation, 
+                                        and rate limiting for API protection.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Performance -->
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-tachometer-alt fa-3x text-info mb-3"></i>
+                                    <h5 class="card-title">Performance</h5>
+                                    <p class="card-text">
+                                        Optimized queries, efficient caching strategies, and proper error handling 
+                                        for fast and reliable performance.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Projects -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h3 class="h2 mb-3">Other Projects You Might Like</h3>
+                <p class="lead text-muted">Explore more of my backend development work</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-12 text-center">
+                    <a href="/projects" class="btn btn-primary btn-lg">
+                        <i class="fas fa-laptop-code me-2"></i>View All Projects
+                    </a>
+                    <a href="/contact" class="btn btn-outline-primary btn-lg ms-3">
+                        <i class="fas fa-envelope me-2"></i>Discuss Your Project
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<%- include('partials/footer') %>
