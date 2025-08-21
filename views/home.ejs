@@ -6,6 +6,13 @@
     .hero-grid {
         grid-template-columns: 1fr !important;
         text-align: center !important;
+        gap: 2rem !important;
+    }
+    .hero-content {
+        order: 2;
+    }
+    .hero-image {
+        order: 1;
     }
     .hero-content h1 {
         font-size: 2.5rem !important;
@@ -13,36 +20,80 @@
     .hero-content h2 {
         font-size: 1.25rem !important;
     }
+    .hero-content p {
+        font-size: 1rem !important;
+    }
+    .hero-buttons {
+        justify-content: center !important;
+        flex-direction: column !important;
+        gap: 1rem !important;
+    }
+    .hero-buttons a {
+        text-align: center !important;
+        width: 100% !important;
+        max-width: 250px !important;
+    }
     .stats-grid {
         grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
     }
     .skills-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
     }
     .services-grid {
         grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
     }
     .projects-grid {
         grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+    .section-padding {
+        padding: 40px 0 !important;
+    }
+    .cta-buttons {
+        flex-direction: column !important;
+        gap: 1rem !important;
+    }
+    .cta-buttons a {
+        width: 100% !important;
+        max-width: 250px !important;
+        text-align: center !important;
     }
 }
 @media (max-width: 480px) {
     .hero-content h1 {
         font-size: 2rem !important;
     }
+    .hero-content h2 {
+        font-size: 1.1rem !important;
+    }
     .stats-grid {
         grid-template-columns: 1fr !important;
+        gap: 1rem !important;
     }
     .skills-grid {
         grid-template-columns: 1fr !important;
+    }
+    .hero-section {
+        padding: 60px 0 !important;
+        min-height: 80vh !important;
+    }
+    .section-container {
+        padding: 0 15px !important;
+    }
+    .profile-image {
+        width: 220px !important;
+        height: 220px !important;
     }
 }
 </style>
 
 <div style="padding: 0; padding-top: 80px;">
     <!-- Hero Section -->
-    <section style="background: linear-gradient(135deg, #0d6efd 0%, #0056b3 100%); color: white; padding: 80px 0; min-height: 90vh; display: flex; align-items: center;">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; width: 100%;">
+    <section class="hero-section" style="background: linear-gradient(135deg, #0d6efd 0%, #0056b3 100%); color: white; padding: 80px 0; min-height: 90vh; display: flex; align-items: center;">
+        <div class="section-container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px; width: 100%;">
             <div class="hero-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
                 <div class="hero-content">
                     <h1 style="font-size: 3.5rem; font-weight: bold; margin-bottom: 1rem; line-height: 1.2;">
@@ -53,7 +104,7 @@
                         I specialize in building robust, scalable backend systems and RESTful APIs using Node.js, Express.js, and modern database technologies. 
                         Passionate about clean code, performance optimization, and creating solutions that power amazing user experiences.
                     </p>
-                    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem;">
+                    <div class="hero-buttons" style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem;">
                         <a href="/about" style="background-color: white; color: #0d6efd; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 1rem;">
                             🚀 About Me
                         </a>
@@ -79,10 +130,10 @@
                         </a>
                     </div>
                 </div>
-                <div style="text-align: center;">
+                <div class="hero-image" style="text-align: center;">
                     <div style="position: relative;">
                         <div style="background: rgba(255,255,255,0.1); padding: 40px; border-radius: 20px; backdrop-filter: blur(10px);">
-                            <img src="/images/profile.jpg" alt="Samuel" style="width: 280px; height: 280px; border-radius: 50%; object-fit: cover; box-shadow: 0 8px 32px rgba(0,0,0,0.3); border: 4px solid rgba(255,255,255,0.2);" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgwIiBoZWlnaHQ9IjI4MCIgdmlld0JveD0iMCAwIDI4MCAyODAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyODAiIGhlaWdodD0iMjgwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiIHJ4PSIxNDAiLz4KPGNpcmNsZSBjeD0iMTQwIiBjeT0iMTEwIiByPSI0MCIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTcwIDIyMEM3MCAyMTAgOTAgMTgwIDEwNSAxODBIMTc1QzE5MCAxODAgMjEwIDIxMCAyMTAgMjIwVjI4MEg3MFYyMjBaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K'">
+                            <img src="/images/profile.jpg" alt="Samuel" class="profile-image" style="width: 280px; height: 280px; border-radius: 50%; object-fit: cover; box-shadow: 0 8px 32px rgba(0,0,0,0.3); border: 4px solid rgba(255,255,255,0.2);" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgwIiBoZWlnaHQ9IjI4MCIgdmlld0JveD0iMCAwIDI4MCAyODAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyODAiIGhlaWdodD0iMjgwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiIHJ4PSIxNDAiLz4KPGNpcmNsZSBjeD0iMTQwIiBjeT0iMTEwIiByPSI0MCIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTcwIDIyMEM3MCAyMTAgOTAgMTgwIDEwNSAxODBIMTc1QzE5MCAxODAgMjEwIDIxMCAyMTAgMjIwVjI4MEg3MFYyMjBaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K'">
                             <div style="position: absolute; top: -10px; right: -10px; background: #28a745; color: white; padding: 8px 12px; border-radius: 50px; font-size: 0.9rem; font-weight: bold;">
                                 Available for Work
                             </div>
@@ -94,8 +145,8 @@
     </section>
 
     <!-- Stats Section -->
-    <section style="background-color: white; padding: 60px 0;">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+    <section class="section-padding" style="background-color: white; padding: 60px 0;">
+        <div class="section-container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
             <div class="stats-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center;">
                 <div>
                     <h3 style="font-size: 2.5rem; font-weight: bold; color: #0d6efd; margin-bottom: 0.5rem;">3+</h3>
@@ -118,8 +169,8 @@
     </section>
 
     <!-- Skills Section -->
-    <section style="background-color: #f8f9fa; padding: 80px 0;">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+    <section class="section-padding" style="background-color: #f8f9fa; padding: 80px 0;">
+        <div class="section-container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
             <div style="text-align: center; margin-bottom: 3rem;">
                 <h2 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 1rem;">Technical Expertise</h2>
                 <p style="font-size: 1.2rem; color: #6c757d;">Technologies and tools I work with daily</p>
@@ -160,8 +211,8 @@
     </section>
 
     <!-- Services Section -->
-    <section style="background-color: white; padding: 80px 0;">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+    <section class="section-padding" style="background-color: white; padding: 80px 0;">
+        <div class="section-container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
             <div style="text-align: center; margin-bottom: 3rem;">
                 <h2 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 1rem;">What I Do</h2>
                 <p style="font-size: 1.2rem; color: #6c757d;">Services I provide to help bring your ideas to life</p>
@@ -232,8 +283,8 @@
     </section>
 
     <!-- Featured Projects Preview -->
-    <section style="padding: 80px 0; background-color: #f8f9fa;">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+    <section class="section-padding" style="padding: 80px 0; background-color: #f8f9fa;">
+        <div class="section-container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
             <div style="text-align: center; margin-bottom: 3rem;">
                 <h2 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 1rem;">Featured Projects</h2>
                 <p style="font-size: 1.2rem; color: #6c757d;">Some of my recent backend development work</p>
@@ -326,13 +377,13 @@
 
     <!-- Call to Action Section -->
     <section style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; padding: 80px 0;">
-        <div style="max-width: 800px; margin: 0 auto; padding: 0 20px; text-align: center;">
+        <div class="section-container" style="max-width: 800px; margin: 0 auto; padding: 0 20px; text-align: center;">
             <h2 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 1rem;">Ready to Start Your Project?</h2>
             <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">
                 Let's discuss how I can help bring your backend ideas to life. Whether you need a REST API, 
                 database design, or complete backend architecture, I'm here to help.
             </p>
-            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <div class="cta-buttons" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                 <a href="/contact" style="background-color: white; color: #28a745; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 1.1rem;">
                     ✉️ Get In Touch
                 </a>
