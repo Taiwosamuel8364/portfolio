@@ -1,12 +1,19 @@
 const express = require('express');
 const router = express.Router();
-const projects = require('../data/projects');
 
 // Home page route
-router.get('/', (req, res) => {
+router.get('/', (req, res, next) => {
   try {
-    // Get featured projects (first 3)
-    const featuredProjects = projects.slice(0, 3);
+    let featuredProjects = [];
+    
+    // Try to load projects, but don't fail if it doesn't work
+    try {
+      const projects = require('../data/projects');
+      featuredProjects = projects.slice(0, 3);
+    } catch (projectError) {
+      console.log('Could not load projects, using empty array');
+      featuredProjects = [];
+    }
     
     res.render('home', { 
       title: 'Samuel - Backend Developer',
@@ -15,11 +22,7 @@ router.get('/', (req, res) => {
     });
   } catch (error) {
     console.error('Error rendering home page:', error);
-    res.status(500).render('error', { 
-      title: 'Server Error',
-      error: error,
-      currentPage: 'error'
-    });
+    next(error);
   }
 });
 
