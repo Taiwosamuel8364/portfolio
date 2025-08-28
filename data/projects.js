@@ -3,31 +3,37 @@ const projects = [
     id: 1,
     title: "E-Commerce API",
     description: "A comprehensive RESTful API for an e-commerce platform built with Node.js, Express, and MongoDB. Features include user authentication, product management, shopping cart, order processing, and payment integration.",
-    technologies: ["Node.js", "Express.js", "MongoDB", "JWT", "Stripe API", "Nodemailer"],
-    github: "https://github.com/yourusername/ecommerce-api",
-    demo: null,
+    techStack: ["Node.js", "Express.js", "MongoDB", "JWT", "Stripe API", "Nodemailer"],
+    githubUrl: "https://github.com/yourusername/ecommerce-api",
+    liveUrl: null,
     featured: true,
-    image: "/images/project1.jpg"
+    image: "/images/project-placeholder.jpg",
+    category: "Backend Development",
+    status: "Completed"
   },
   {
     id: 2,
     title: "Task Management API",
     description: "A robust task management system API with user authentication, project collaboration, and real-time notifications. Built with Express.js and PostgreSQL.",
-    technologies: ["Node.js", "Express.js", "PostgreSQL", "Socket.io", "JWT", "Bcrypt"],
-    github: "https://github.com/yourusername/task-management-api",
-    demo: "https://your-task-api.herokuapp.com",
+    techStack: ["Node.js", "Express.js", "PostgreSQL", "Socket.io", "JWT", "Bcrypt"],
+    githubUrl: "https://github.com/yourusername/task-management-api",
+    liveUrl: "https://your-task-api.herokuapp.com",
     featured: true,
-    image: "/images/project2.jpg"
+    image: "/images/project-placeholder.jpg",
+    category: "Web Development",
+    status: "Completed"
   },
   {
     id: 3,
     title: "Social Media API",
     description: "A social media platform backend with features like user profiles, posts, comments, likes, and friend connections. Includes real-time chat functionality.",
-    technologies: ["Node.js", "Express.js", "MongoDB", "Socket.io", "Cloudinary", "JWT"],
-    github: "https://github.com/yourusername/social-media-api",
-    demo: null,
+    techStack: ["Node.js", "Express.js", "MongoDB", "Socket.io", "Cloudinary", "JWT"],
+    githubUrl: "https://github.com/yourusername/social-media-api",
+    liveUrl: null,
     featured: true,
-    image: "/images/project3.jpg"
+    image: "/images/project-placeholder.jpg",
+    category: "Backend Development",
+    status: "In Progress"
   }
 ];
 
