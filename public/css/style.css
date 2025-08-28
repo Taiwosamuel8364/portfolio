@@ -392,6 +392,102 @@ footer .social-links a:hover {
   color: #ffffff;
 }
 
+/* Contact Form Dark Theme Styles */
+[data-theme="dark"] .contact-form {
+  background-color: #2d2d2d !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .contact-form h3 {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .contact-form label {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .contact-form input[type="text"],
+[data-theme="dark"] .contact-form input[type="email"],
+[data-theme="dark"] .contact-form textarea {
+  background-color: #1a1a1a !important;
+  border-color: #495057 !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .contact-form input[type="text"]:focus,
+[data-theme="dark"] .contact-form input[type="email"]:focus,
+[data-theme="dark"] .contact-form textarea:focus {
+  background-color: #1a1a1a !important;
+  border-color: var(--primary-color) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25) !important;
+}
+
+[data-theme="dark"] .contact-form input::placeholder,
+[data-theme="dark"] .contact-form textarea::placeholder {
+  color: #adb5bd !important;
+}
+
+/* Contact form container */
+[data-theme="dark"] .contact-grid > div:first-child > div {
+  background-color: #2d2d2d !important;
+}
+
+/* Contact sidebar dark theme */
+[data-theme="dark"] .contact-sidebar h3,
+[data-theme="dark"] .contact-sidebar h6 {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .contact-sidebar p {
+  color: #adb5bd !important;
+}
+
+[data-theme="dark"] .contact-sidebar small {
+  color: #6c757d !important;
+}
+
+/* FAQ Section Dark Theme */
+[data-theme="dark"] .contact-faq-section {
+  background-color: #1a1a1a !important;
+}
+
+[data-theme="dark"] .contact-faq-section h3,
+[data-theme="dark"] .contact-faq-section h5 {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .contact-faq-section p {
+  color: #adb5bd !important;
+}
+
+[data-theme="dark"] .contact-faq-section > div > div > div > div {
+  background-color: #2d2d2d !important;
+  border-color: #495057 !important;
+}
+
+/* CTA Section Dark Theme */
+[data-theme="dark"] .contact-cta-section h3 {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .contact-cta-section p {
+  color: #adb5bd !important;
+}
+
+/* Success/Error Messages Dark Theme */
+[data-theme="dark"] .contact-form div[style*="background-color: #d1edff"] {
+  background-color: #1a4c5c !important;
+  border-color: #2e7d93 !important;
+  color: #a3d4e6 !important;
+}
+
+[data-theme="dark"] .contact-form div[style*="background-color: #f8d7da"] {
+  background-color: #5c1a1a !important;
+  border-color: #932e2e !important;
+  color: #e6a3a3 !important;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .hero-section {
